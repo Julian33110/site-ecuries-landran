@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planning des cours — Les Écuries du Landran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #header { background: rgba(30,58,30,.97); backdrop-filter: blur(12px); box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+    #header .nav { padding: 14px 40px; }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🐴</span>
+        <div>
+          <span class="logo-name">Les Écuries du Landran</span>
+          <span class="logo-sub">École d'équitation · Élevage</span>
+        </div>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#accueil">Accueil</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#galerie">Galerie</a></li>
+        <li><a href="index.html#equipe">L'équipe</a></li>
+        <li><a href="index.html#tarifs">Tarifs</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#inscriptions" class="nav-cta">S'inscrire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="subpage-main">
+    <div class="subpage-hero">
+      <div class="container">
+        <span class="section-tag">Saison 2025–2026</span>
+        <h1>Planning des cours</h1>
+        <p class="subpage-hero-desc">Retrouvez l'organisation des créneaux hebdomadaires par niveau et par enseignante. Pour toute demande de créneau spécifique, contactez-nous directement.</p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Enseignantes -->
+      <div class="planning-enseignantes">
+        <div class="planning-ens-card">
+          <div class="planning-ens-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80" alt="Clara Cazeneuve" />
+          </div>
+          <div>
+            <strong>Clara Cazeneuve</strong>
+            <span>Cheval Club · Valorisation</span>
+            <a href="tel:0644360318">06 44 36 03 18</a>
+          </div>
+        </div>
+        <div class="planning-ens-card">
+          <div class="planning-ens-avatar">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80" alt="Élise Gandy" />
+          </div>
+          <div>
+            <strong>Élise Gandy</strong>
+            <span>Poney Club · École</span>
+            <a href="tel:0673508895">06 73 50 88 95</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Planning à venir -->
+      <div class="planning-indispo">
+        <div class="planning-indispo-icon">📅</div>
+        <h2>Planning en cours de mise à jour</h2>
+        <p>Le planning des cours pour la saison 2025–2026 sera bientôt disponible ici. En attendant, contactez directement Clara ou Élise pour connaître les créneaux disponibles et réserver votre place.</p>
+        <div class="planning-indispo-actions">
+          <a href="tel:0644360318" class="btn btn-primary">Appeler Clara — 06 44 36 03 18</a>
+          <a href="tel:0673508895" class="btn btn-outline-dark">Appeler Élise — 06 73 50 88 95</a>
+        </div>
+      </div>
+
+      <div class="subpage-back">
+        <a href="index.html#inscriptions" class="btn btn-primary">S'inscrire</a>
+        <a href="index.html#contact" class="btn btn-outline-dark">Nous contacter</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-icon">🐴</span>
+          <span class="logo-name">Les Écuries du Landran</span>
+          <p>Bienveillance · Famille · Performance</p>
+          <p>2025 Route du Landran, 40380 Gamarde-les-Bains</p>
+        </div>
+        <div class="footer-links">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="index.html#accueil">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#equipe">L'équipe</a></li>
+            <li><a href="index.html#tarifs">Tarifs</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#inscriptions">Inscriptions</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="index.html#services">Pension équestre</a></li>
+            <li><a href="index.html#services">École d'équitation</a></li>
+            <li><a href="index.html#services">Valorisation & Élevage</a></li>
+            <li><a href="index.html#services">Centre de formation</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h5>Contact rapide</h5>
+          <p><a href="tel:0679659356">06 79 65 93 56</a></p>
+          <p><a href="mailto:lesecuriesdulandran@gmail.com">lesecuriesdulandran@gmail.com</a></p>
+          <div class="social-links" style="margin-top:12px">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Les Écuries du Landran · Tous droits réservés</p>
+        <a href="mentions-legales.html" class="footer-legal">Mentions légales</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

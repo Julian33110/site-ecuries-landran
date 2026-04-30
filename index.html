@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Écuries du Landran – École d'équitation & Centre d'élevage</title>
+  <meta name="description" content="Les Écuries du Landran à Gamarde-les-Bains. Pension équestre, école d'équitation, élevage et valorisation de chevaux. Bienveillance, famille, performance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <header id="header">
+    <nav class="nav">
+      <a href="#accueil" class="logo">
+        <span class="logo-icon">🐴</span>
+        <div>
+          <span class="logo-name">Les Écuries du Landran</span>
+          <span class="logo-sub">École d'équitation · Élevage</span>
+        </div>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#equipe">L'équipe</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#inscriptions" class="nav-cta">S'inscrire</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="accueil">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1553284965-5dd5dde3d8e4?w=1600&q=80" alt="Cheval en liberté" class="hero-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag reveal">Gamarde-les-Bains, Landes</p>
+      <h1 class="hero-title reveal">
+        Bienveillance.<br />
+        <em>Famille.</em><br />
+        Performance.
+      </h1>
+      <p class="hero-desc reveal">
+        Depuis des années, nous accueillons chevaux et cavaliers dans un cadre exceptionnel de 15 hectares. École d'équitation, pension, élevage — tout dans le respect du cheval.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#services" class="btn btn-primary">Découvrir nos services</a>
+        <a href="#contact" class="btn btn-outline">Nous contacter</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Défiler</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── CHIFFRES ── -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-number">15</span>
+          <span class="stat-unit">ha</span>
+          <span class="stat-label">de terrain</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number">40</span>
+          <span class="stat-unit">+</span>
+          <span class="stat-label">boxes</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number">3</span>
+          <span class="stat-unit"></span>
+          <span class="stat-label">écuries</span>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number">24</span>
+          <span class="stat-unit">h</span>
+          <span class="stat-label">surveillance vidéo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Ce que nous proposons</span>
+        <h2>Nos services</h2>
+        <p>Un accompagnement complet pour vous et votre cheval, avec toute notre passion.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-icon">🏠</div>
+          <h3>Pension équestre</h3>
+          <p>Pension interne ou externe avec suivi personnalisé, prés clôturés par tranche d'âge, et structures modernes pour le bien-être de votre cheval.</p>
+          <ul>
+            <li>Pension interne & externe</li>
+            <li>Valorisation incluse possible</li>
+            <li>Surveillance 24h/24</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+
+        <div class="service-card reveal featured">
+          <div class="service-icon">🎓</div>
+          <h3>École d'équitation</h3>
+          <p>Cheval Club & Poney Club : cours pour tous niveaux, du débutant au cavalier confirmé, dans une ambiance familiale et bienveillante.</p>
+          <ul>
+            <li>Poney Club & Cheval Club</li>
+            <li>Cours individuels & collectifs</li>
+            <li>Préparation aux galops</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">🏆</div>
+          <h3>Valorisation & Élevage</h3>
+          <p>Service personnalisé pour chevaux de 4 ans minimum. Débourrage, dressage, valorisation pour la vente avec suivi professionnel.</p>
+          <ul>
+            <li>Débourrage & dressage</li>
+            <li>Chevaux dès 4 ans</li>
+            <li>Commerce de chevaux</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">📋</div>
+          <h3>Centre de formation</h3>
+          <p>Formation professionnelle diplômante depuis 2016. Devenez animateur d'équitation dans un cadre pédagogique structuré et bienveillant.</p>
+          <ul>
+            <li>Diplôme animateur équitation</li>
+            <li>Depuis 2016</li>
+            <li>Formations certifiantes</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EQUIPE ── -->
+  <section class="equipe" id="equipe">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Des passionnés à votre service</span>
+        <h2>Notre équipe</h2>
+        <p>Une famille soudée autour d'une même passion : le cheval.</p>
+      </div>
+      <div class="equipe-grid">
+
+        <div class="membre-card reveal">
+          <div class="membre-avatar">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&q=80" alt="Cécilia Cazeneuve" />
+          </div>
+          <h4>Cécilia Cazeneuve</h4>
+          <span class="membre-role">Directrice</span>
+          <p>À la tête des Écuries du Landran, Cécilia pilote avec passion l'ensemble des activités et veille à la qualité de chaque prestation.</p>
+          <a href="tel:0679659356" class="membre-tel">06 79 65 93 56</a>
+        </div>
+
+        <div class="membre-card reveal">
+          <div class="membre-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Clara Cazeneuve" />
+          </div>
+          <h4>Clara Cazeneuve</h4>
+          <span class="membre-role">Enseignante & Valorisation</span>
+          <p>Spécialisée dans la valorisation des chevaux, Clara accompagne également les cavaliers dans leur progression avec douceur et expertise.</p>
+          <a href="tel:0644360318" class="membre-tel">06 44 36 03 18</a>
+        </div>
+
+        <div class="membre-card reveal">
+          <div class="membre-avatar">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Élise Gandy" />
+          </div>
+          <h4>Élise Gandy</h4>
+          <span class="membre-role">Enseignante – École</span>
+          <p>Dédiée à l'école d'équitation, Élise transmet sa passion du cheval à chaque élève, du plus petit au plus confirmé.</p>
+          <a href="tel:0673508895" class="membre-tel">06 73 50 88 95</a>
+        </div>
+
+        <div class="membre-card reveal">
+          <div class="membre-avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Xavier Duclos" />
+          </div>
+          <h4>Xavier Duclos</h4>
+          <span class="membre-role">Palefrenier – depuis 2007</span>
+          <p>Véritable pilier des écuries depuis 2007, Xavier assure le bien-être quotidien des chevaux avec rigueur et affection.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INFRASTRUCTURES ── -->
+  <section class="infra" id="infra">
+    <div class="infra-inner">
+      <div class="infra-text reveal">
+        <span class="section-tag light">Un cadre exceptionnel</span>
+        <h2>Nos infrastructures</h2>
+        <p>15 hectares au cœur des Landes, à Gamarde-les-Bains, pour offrir à vos chevaux et à vous-mêmes les meilleures conditions.</p>
+        <ul class="infra-list">
+          <li>
+            <span class="infra-icon">🌿</span>
+            <div><strong>15 hectares</strong> de terrain verdoyant</div>
+          </li>
+          <li>
+            <span class="infra-icon">🏠</span>
+            <div><strong>40 boxes</strong> répartis dans 3 écuries modernes</div>
+          </li>
+          <li>
+            <span class="infra-icon">📹</span>
+            <div><strong>Surveillance vidéo</strong> 24h/24 et 7j/7</div>
+          </li>
+          <li>
+            <span class="infra-icon">🌾</span>
+            <div><strong>Prés clôturés</strong> par tranche d'âge</div>
+          </li>
+          <li>
+            <span class="infra-icon">🤝</span>
+            <div>Partenariat <strong>Équiland</strong> (Cassen)</div>
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Demander une visite</a>
+      </div>
+      <div class="infra-images reveal">
+        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=700&q=80" alt="Écurie" class="infra-img infra-img-main" />
+        <img src="https://images.unsplash.com/photo-1590419690008-905895e8fe0d?w=400&q=80" alt="Cheval au pré" class="infra-img infra-img-sm1" />
+        <img src="https://images.unsplash.com/photo-1534307671554-9a6d81f4d629?w=400&q=80" alt="Box cheval" class="infra-img infra-img-sm2" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALERIE ── -->
+  <section class="galerie" id="galerie">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">La vie au Landran</span>
+        <h2>Notre galerie</h2>
+        <p>Quelques instants capturés dans nos écuries, sur nos prés et en selle.</p>
+      </div>
+      <div class="galerie-grid">
+        <div class="gal-item reveal" data-index="0">
+          <img src="https://images.unsplash.com/photo-1553284965-5dd5dde3d8e4?w=900&q=80" alt="Cheval au galop" loading="lazy" />
+          <div class="gal-overlay"><span>+</span></div>
+        </div>
+        <div class="gal-item reveal" data-index="1">
+          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=700&q=80" alt="Intérieur de l'écurie" loading="lazy" />
+          <div class="gal-overlay"><span>+</span></div>
+        </div>
+        <div class="gal-item reveal" data-index="2">
+          <img src="https://images.unsplash.com/photo-1590419690008-905895e8fe0d?w=700&q=80" alt="Cheval au pré" loading="lazy" />
+          <div class="gal-overlay"><span>+</span></div>
+        </div>
+        <div class="gal-item reveal" data-index="3">
+          <img src="https://images.unsplash.com/photo-1534307671554-9a6d81f4d629?w=700&q=80" alt="Box et litière" loading="lazy" />
+          <div class="gal-overlay"><span>+</span></div>
+        </div>
+        <div class="gal-item reveal" data-index="4">
+          <img src="https://images.unsplash.com/photo-1553284966-19b8815c7817?w=700&q=80" alt="Portrait de cheval" loading="lazy" />
+          <div class="gal-overlay"><span>+</span></div>
+        </div>
+        <div class="gal-item reveal" data-index="5">
+          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=900&q=80" alt="Cavalier en selle" loading="lazy" />
+          <div class="gal-overlay"><span>+</span></div>
+        </div>
+        <div class="gal-item reveal" data-index="6">
+          <img src="https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=700&q=80" alt="Cours d'équitation" loading="lazy" />
+          <div class="gal-overlay"><span>+</span></div>
+        </div>
+      </div>
+      <div class="galerie-more reveal">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Voir plus de photos sur Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TÉMOIGNAGES ── -->
+  <section class="temoignages" id="temoignages">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Ce qu'ils disent de nous</span>
+        <h2>Témoignages</h2>
+        <p>La confiance de nos cavaliers et de leurs familles est notre plus belle récompense.</p>
+      </div>
+      <div class="temo-grid">
+        <div class="temo-card reveal">
+          <div class="temo-stars">★★★★★</div>
+          <p class="temo-text">Mon fils est en pension depuis 2 ans et l'accueil est exceptionnel. L'équipe est à l'écoute, les chevaux sont bien soignés, et l'ambiance familiale est vraiment au rendez-vous. Je recommande sans hésiter.</p>
+          <div class="temo-author">
+            <div class="temo-initials">ML</div>
+            <div>
+              <strong>Marie-Laure D.</strong>
+              <span>Maman d'élève — depuis 2022</span>
+            </div>
+          </div>
+        </div>
+        <div class="temo-card reveal">
+          <div class="temo-stars">★★★★★</div>
+          <p class="temo-text">J'ai confié ma jument en valorisation à Clara, et les résultats sont impressionnants. Elle travaille avec beaucoup de douceur et de professionnalisme. Mon cheval a vraiment progressé en quelques mois.</p>
+          <div class="temo-author">
+            <div class="temo-initials">TB</div>
+            <div>
+              <strong>Thomas B.</strong>
+              <span>Propriétaire — valorisation</span>
+            </div>
+          </div>
+        </div>
+        <div class="temo-card reveal">
+          <div class="temo-stars">★★★★★</div>
+          <p class="temo-text">Élise est une enseignante formidable. Ma fille a débuté à 6 ans et progresse vite, grâce à une pédagogie bienveillante et adaptée. Les infrastructures sont top et les poneys adorables.</p>
+          <div class="temo-author">
+            <div class="temo-initials">SC</div>
+            <div>
+              <strong>Sophie C.</strong>
+              <span>Maman d'élève — Poney Club</span>
+            </div>
+          </div>
+        </div>
+        <div class="temo-card reveal">
+          <div class="temo-stars">★★★★★</div>
+          <p class="temo-text">J'ai mon cheval en pension ici depuis plus de 3 ans. Xavier est une vraie perle — il connaît chaque animal par cœur. La surveillance vidéo 24h/24 est aussi un vrai plus pour avoir l'esprit tranquille.</p>
+          <div class="temo-author">
+            <div class="temo-initials">JF</div>
+            <div>
+              <strong>Jean-François M.</strong>
+              <span>Pensionnaire — depuis 2021</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="temo-cta reveal">
+        <a href="https://search.google.com/local/writereview?placeid=ChIJ" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark">Laisser un avis Google</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TARIFS ── -->
+  <section class="tarifs" id="tarifs">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Saison 2024–2025</span>
+        <h2>Nos tarifs</h2>
+        <p>Grille tarifaire complète. Une réduction de <strong>5&nbsp;%</strong> est appliquée sur les cours et la pension en cas de paiement par prélèvement SEPA.</p>
+      </div>
+
+      <!-- Frais annuels -->
+      <div class="tarif-block reveal">
+        <div class="tarif-block-head">Frais annuels</div>
+        <div class="tarif-table-wrap">
+          <table class="tarif-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>- 12 ans</th>
+                <th>+ 12 ans</th>
+                <th>Propriétaire</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Licence Fédérale</td>
+                <td>25 €</td><td>25 €</td><td>36 €</td>
+              </tr>
+              <tr>
+                <td>Licence Compétition</td>
+                <td>Gratuit</td><td>Gratuit</td><td>80 €</td>
+              </tr>
+              <tr>
+                <td>Cotisation Annuelle</td>
+                <td>105 €</td><td>115 €</td><td>125 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Cours et leçons -->
+      <div class="tarif-block reveal">
+        <div class="tarif-block-head">
+          Cours et leçons
+          <span class="tarif-sepa">−5 % si prélèvement SEPA</span>
+        </div>
+        <div class="tarif-table-wrap">
+          <table class="tarif-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Poney-Club<br /><small>(- 12 ans)</small></th>
+                <th>Cheval-Club<br /><small>(+ 12 ans)</small></th>
+                <th>Propriétaire</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Carte 10 cours collectifs</td>
+                <td>204,75 € <span class="sepa-price">(195 €)</span></td>
+                <td>225,75 € <span class="sepa-price">(214,50 €)</span></td>
+                <td>141,75 € <span class="sepa-price">(135 €)</span></td>
+              </tr>
+              <tr>
+                <td>Carte 10 cours particuliers</td>
+                <td>295 € <span class="sepa-price">(280 €)</span></td>
+                <td>295 € <span class="sepa-price">(280 €)</span></td>
+                <td>288,75 € <span class="sepa-price">(275 €)</span></td>
+              </tr>
+              <tr>
+                <td>Forfait mensuel — 1 leçon/sem.</td>
+                <td>61 € <span class="sepa-price">(58 €)</span></td>
+                <td>66 € <span class="sepa-price">(63 €)</span></td>
+                <td>49 € <span class="sepa-price">(46,50 €)</span></td>
+              </tr>
+              <tr>
+                <td>Forfait mensuel — 2 leçons/sem.</td>
+                <td>120,75 € <span class="sepa-price">(115 €)</span></td>
+                <td>131,25 € <span class="sepa-price">(125 €)</span></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>Stage vacances (½ journée)</td>
+                <td>35 €</td>
+                <td>35 €</td>
+                <td>30 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Pension -->
+      <div class="tarif-block reveal">
+        <div class="tarif-block-head">
+          Pension
+          <span class="tarif-sepa">−5 % si prélèvement SEPA</span>
+        </div>
+        <div class="tarif-table-wrap">
+          <table class="tarif-table tarif-table-2col">
+            <tbody>
+              <tr>
+                <td>Pension intérieure</td>
+                <td>456,75 € <span class="sepa-price">(435 €)</span></td>
+              </tr>
+              <tr>
+                <td>Pension Valorisation</td>
+                <td>682,50 € <span class="sepa-price">(650 €)</span></td>
+              </tr>
+              <tr>
+                <td>Demi-Pension (1 cours collectif/semaine)</td>
+                <td>250 € <small class="tarif-sub">(Cheval)</small> &nbsp;·&nbsp; 200 € <small class="tarif-sub">(Poney)</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Concours -->
+      <div class="tarif-block reveal">
+        <div class="tarif-block-head">Concours CSO &amp; CCE</div>
+        <div class="tarif-table-wrap">
+          <table class="tarif-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Engagement</th>
+                <th>Coaching</th>
+                <th>Transport</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CCE Club</td>
+                <td>Selon organisateur</td>
+                <td>35 € / les 3 tests</td>
+                <td rowspan="4" class="tarif-transport">0,40 €/km <small>(club)</small><br />0,50 €/km <small>(proprio)</small></td>
+              </tr>
+              <tr>
+                <td>CSO Club</td>
+                <td>Selon organisateur</td>
+                <td>15 € / le tour</td>
+              </tr>
+              <tr>
+                <td>CCE Amateur</td>
+                <td>Selon organisateur</td>
+                <td>60 € / les 3 tests</td>
+              </tr>
+              <tr>
+                <td>CSO Amateur</td>
+                <td>Selon organisateur</td>
+                <td>20 € / le tour</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tarifs-footer reveal">
+        <p>Tarifs de référence 2024–2025 — téléchargez la grille officielle 2025–2026 ci-dessous.</p>
+        <a href="https://irp.cdn-website.com/aa7456aa/files/uploaded/tarifs+2025-2026-8dd45bb4.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          <span>📄</span> Télécharger le PDF des tarifs 2025–2026
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INSCRIPTIONS ── -->
+  <section class="inscriptions" id="inscriptions">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-tag">Saison 2025–2026</span>
+        <h2>Inscription à l'année &amp; aux stages</h2>
+        <p>Consultez d'abord le planning et les tarifs, puis remplissez le formulaire ci-dessous. Nous vous confirmerons votre inscription sous 48h.</p>
+      </div>
+
+      <!-- Documents à télécharger -->
+      <div class="insc-docs reveal">
+        <a href="https://irp.cdn-website.com/aa7456aa/files/uploaded/tarifs+2025-2026-8dd45bb4.pdf" target="_blank" class="insc-doc-btn">
+          <span>📄</span> Tarifs 2025–2026
+        </a>
+        <a href="planning.html" class="insc-doc-btn">
+          <span>📅</span> Planning des cours
+        </a>
+        <a href="reglement-interieur.html" class="insc-doc-btn">
+          <span>📋</span> Règlement intérieur
+        </a>
+      </div>
+
+      <!-- Formulaire -->
+      <form class="insc-form reveal" id="insc-form">
+
+        <!-- Type d'inscription -->
+        <div class="insc-section-title">Type d'inscription</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="type_inscription">Type d'inscription <span class="req">*</span></label>
+            <select id="type_inscription" name="type_inscription" required>
+              <option value="">Choisir…</option>
+              <option value="annee">Inscription à l'année</option>
+              <option value="stage">Inscription à un stage</option>
+            </select>
+          </div>
+          <div class="form-group" id="modalite-group">
+            <label for="modalite">Modalité <span class="req">*</span></label>
+            <select id="modalite" name="modalite">
+              <option value="">Choisir…</option>
+              <option value="mois">Inscription annuelle au mois</option>
+              <option value="carte">Inscription annuelle à la carte</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Cavalier -->
+        <div class="insc-section-title">Informations du cavalier</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cav_prenom">Prénom du cavalier <span class="req">*</span></label>
+            <input type="text" id="cav_prenom" name="cav_prenom" placeholder="Prénom" required />
+          </div>
+          <div class="form-group">
+            <label for="cav_nom">Nom du cavalier <span class="req">*</span></label>
+            <input type="text" id="cav_nom" name="cav_nom" placeholder="Nom" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cav_naissance">Date de naissance</label>
+            <input type="date" id="cav_naissance" name="cav_naissance" />
+          </div>
+          <div class="form-group">
+            <label for="cav_tel">Portable du cavalier <span class="req">*</span></label>
+            <input type="tel" id="cav_tel" name="cav_tel" placeholder="06 XX XX XX XX" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dernier_club">Dernier club fréquenté</label>
+            <input type="text" id="dernier_club" name="dernier_club" placeholder="Nom du club" />
+          </div>
+          <div class="form-group">
+            <label for="club_cp">Code postal du club</label>
+            <input type="text" id="club_cp" name="club_cp" placeholder="40000" maxlength="5" />
+          </div>
+        </div>
+        <div class="form-group" style="max-width:340px">
+          <label for="dernier_galop">Dernier diplôme / galop validé</label>
+          <select id="dernier_galop" name="dernier_galop">
+            <option value="">Aucun / débutant</option>
+            <option value="1">Galop 1</option>
+            <option value="2">Galop 2</option>
+            <option value="3">Galop 3</option>
+            <option value="4">Galop 4</option>
+            <option value="5">Galop 5</option>
+            <option value="6">Galop 6</option>
+            <option value="7">Galop 7</option>
+          </select>
+        </div>
+
+        <!-- Coordonnées -->
+        <div class="insc-section-title">Coordonnées</div>
+        <div class="form-group">
+          <label for="adresse">Adresse postale <span class="req">*</span></label>
+          <input type="text" id="adresse" name="adresse" placeholder="Numéro et rue" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cp">Code postal <span class="req">*</span></label>
+            <input type="text" id="cp" name="cp" placeholder="40000" maxlength="5" required />
+          </div>
+          <div class="form-group">
+            <label for="ville">Ville <span class="req">*</span></label>
+            <input type="text" id="ville" name="ville" placeholder="Votre ville" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="insc_email">E-mail <span class="req">*</span></label>
+          <input type="email" id="insc_email" name="insc_email" placeholder="votre@email.fr" required />
+        </div>
+
+        <!-- Représentant légal -->
+        <div class="insc-section-title">Représentant légal <span class="insc-optional">(si cavalier mineur)</span></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rl_prenom">Prénom du représentant</label>
+            <input type="text" id="rl_prenom" name="rl_prenom" placeholder="Prénom" />
+          </div>
+          <div class="form-group">
+            <label for="rl_nom">Nom du représentant</label>
+            <input type="text" id="rl_nom" name="rl_nom" placeholder="Nom" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rl_naissance">Date de naissance</label>
+            <input type="date" id="rl_naissance" name="rl_naissance" />
+          </div>
+          <div class="form-group">
+            <label for="tel_mere">Téléphone mère</label>
+            <input type="tel" id="tel_mere" name="tel_mere" placeholder="06 XX XX XX XX" />
+          </div>
+        </div>
+        <div class="form-group" style="max-width:340px">
+          <label for="tel_pere">Téléphone père</label>
+          <input type="tel" id="tel_pere" name="tel_pere" placeholder="06 XX XX XX XX" />
+        </div>
+
+        <!-- Cours souhaité -->
+        <div class="insc-section-title">Cours souhaité</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jour_cours">Jour du cours</label>
+            <select id="jour_cours" name="jour_cours">
+              <option value="">Choisir un jour…</option>
+              <option>Lundi</option>
+              <option>Mardi</option>
+              <option>Mercredi</option>
+              <option>Jeudi</option>
+              <option>Vendredi</option>
+              <option>Samedi</option>
+              <option>Dimanche</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="heure_cours">Heure du cours</label>
+            <input type="time" id="heure_cours" name="heure_cours" />
+          </div>
+        </div>
+
+        <!-- Règlement intérieur -->
+        <div class="insc-checkbox reveal">
+          <input type="checkbox" id="reglement" name="reglement" required />
+          <label for="reglement">
+            J'accepte le <a href="reglement-interieur.html" target="_blank">règlement intérieur</a> applicable au sein de l'enceinte des Écuries du Landran. <span class="req">*</span>
+          </label>
+        </div>
+
+        <div class="insc-submit">
+          <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande d'inscription</button>
+          <p class="form-note">Nous vous confirmons votre inscription sous 48h. Champs marqués <span class="req">*</span> obligatoires.</p>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">On se rencontre ?</span>
+        <h2>Nous contacter</h2>
+        <p>Une question, une visite, une inscription ? Nous sommes là.</p>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-infos reveal">
+          <div class="contact-info-item">
+            <span class="ci-icon">📍</span>
+            <div>
+              <strong>Adresse</strong>
+              <p>2025 Route du Landran<br />40380 Gamarde-les-Bains</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="ci-icon">📞</span>
+            <div>
+              <strong>Téléphones</strong>
+              <p>
+                <a href="tel:0679659356">Cécilia — 06 79 65 93 56</a><br />
+                <a href="tel:0644360318">Clara — 06 44 36 03 18</a><br />
+                <a href="tel:0673508895">Élise — 06 73 50 88 95</a>
+              </p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="ci-icon">✉️</span>
+            <div>
+              <strong>E-mail</strong>
+              <p><a href="mailto:lesecuriesdulandran@gmail.com">lesecuriesdulandran@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <span class="ci-icon">📱</span>
+            <div>
+              <strong>Réseaux sociaux</strong>
+              <div class="social-links">
+                <a href="https://facebook.com" target="_blank" class="social-btn">Facebook</a>
+                <a href="https://instagram.com" target="_blank" class="social-btn">Instagram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="votre@email.fr" required />
+          </div>
+          <div class="form-group">
+            <label for="sujet">Sujet</label>
+            <select id="sujet" name="sujet">
+              <option value="">Choisir un sujet…</option>
+              <option>Pension équestre</option>
+              <option>École d'équitation</option>
+              <option>Valorisation / Élevage</option>
+              <option>Centre de formation</option>
+              <option>Inscriptions 2025–2026</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Envoyer le message</button>
+          <p class="form-note">Nous vous répondons sous 24–48h.</p>
+        </form>
+
+      </div>
+
+      <!-- Carte Google Maps -->
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2862.1!2d-1.083!3d43.728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQzJzQxLjAiTiAxwrAwNScwMi44Ilc!5e0!3m2!1sfr!2sfr!4v1"
+          width="100%" height="350" style="border:0;" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Localisation des Écuries du Landran">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-icon">🐴</span>
+          <span class="logo-name">Les Écuries du Landran</span>
+          <p>Bienveillance · Famille · Performance</p>
+          <p>2025 Route du Landran, 40380 Gamarde-les-Bains</p>
+        </div>
+        <div class="footer-links">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#equipe">L'équipe</a></li>
+            <li><a href="#tarifs">Tarifs</a></li>
+            <li><a href="#infra">Infrastructures</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#inscriptions">Inscriptions</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Pension équestre</a></li>
+            <li><a href="#services">École d'équitation</a></li>
+            <li><a href="#services">Valorisation & Élevage</a></li>
+            <li><a href="#services">Centre de formation</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h5>Contact rapide</h5>
+          <p><a href="tel:0679659356">06 79 65 93 56</a></p>
+          <p><a href="mailto:lesecuriesdulandran@gmail.com">lesecuriesdulandran@gmail.com</a></p>
+          <div class="social-links" style="margin-top:12px">
+            <a href="https://facebook.com" target="_blank" class="social-btn">Facebook</a>
+            <a href="https://instagram.com" target="_blank" class="social-btn">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Les Écuries du Landran · Tous droits réservés</p>
+        <a href="mentions-legales.html" class="footer-legal">Mentions légales</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie photo">
+    <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+    <button class="lb-prev" id="lb-prev" aria-label="Photo précédente">&#8249;</button>
+    <button class="lb-next" id="lb-next" aria-label="Photo suivante">&#8250;</button>
+    <div class="lb-img-wrap">
+      <img class="lb-img" id="lb-img" src="" alt="" />
+      <p class="lb-caption" id="lb-caption"></p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

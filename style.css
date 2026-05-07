@@ -114,7 +114,7 @@ ul { list-style: none; }
   transition: background var(--transition), box-shadow var(--transition);
 }
 #header.scrolled {
-  background: rgba(30,58,30,.97);
+  background: rgba(67,31,56,.97);
   backdrop-filter: blur(12px);
   box-shadow: 0 2px 24px rgba(0,0,0,.25);
 }
@@ -174,7 +174,7 @@ ul { list-style: none; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30,58,30,.82) 0%, rgba(30,58,30,.45) 60%, rgba(0,0,0,.2) 100%);
+  background: linear-gradient(135deg, rgba(67,31,56,.82) 0%, rgba(67,31,56,.45) 60%, rgba(0,0,0,.2) 100%);
 }
 .hero-content {
   position: relative;
@@ -507,7 +507,7 @@ ul { list-style: none; }
 .form-group textarea:focus {
   border-color: var(--green);
   background: var(--white);
-  box-shadow: 0 0 0 4px rgba(45,90,45,.1);
+  box-shadow: 0 0 0 4px rgba(67,31,56,.1);
 }
 .form-note { font-size: 13px; color: var(--text-muted); text-align: center; }
 
@@ -566,7 +566,7 @@ ul { list-style: none; }
 .gal-item:hover img { transform: scale(1.07); }
 .gal-overlay {
   position: absolute; inset: 0;
-  background: rgba(30,58,30,.45);
+  background: rgba(67,31,56,.45);
   display: flex; align-items: center; justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -723,7 +723,7 @@ ul { list-style: none; }
 }
 .tarif-table tr:last-child td { border-bottom: none; }
 .tarif-table tbody tr:nth-child(even) { background: var(--beige); }
-.tarif-table tbody tr:hover { background: rgba(45,90,45,.04); }
+.tarif-table tbody tr:hover { background: rgba(67,31,56,.04); }
 .tarif-table td:first-child { color: var(--text); font-weight: 500; min-width: 220px; }
 .tarif-table td:not(:first-child) { text-align: center; font-weight: 600; color: var(--green-dark); }
 .tarif-table-2col td:not(:first-child) { text-align: left; }
@@ -853,7 +853,7 @@ ul { list-style: none; }
   transition: background .2s;
 }
 .planning-slot:last-child { border-bottom: none; }
-.planning-slot:hover { background: rgba(45,90,45,.04); }
+.planning-slot:hover { background: rgba(67,31,56,.04); }
 
 .slot-time {
   font-size: 13px;

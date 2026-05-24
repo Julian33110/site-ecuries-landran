@@ -34,20 +34,30 @@ if (heroImg) {
 // ── BURGER MENU ──
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
+const navOverlay = document.getElementById('nav-overlay');
+
+function closeMenu() {
+  burger.classList.remove('open');
+  navLinks.classList.remove('open');
+  navOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
 
 burger.addEventListener('click', () => {
   burger.classList.toggle('open');
   navLinks.classList.toggle('open');
+  navOverlay.classList.toggle('active');
   document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
 });
 
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    burger.classList.remove('open');
-    navLinks.classList.remove('open');
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeMenu);
 });
+
+const navCloseBtn = document.getElementById('nav-close');
+if (navCloseBtn) navCloseBtn.addEventListener('click', closeMenu);
+
+navOverlay.addEventListener('click', closeMenu);
 
 // ── SMOOTH ACTIVE NAV ──
 const sections = document.querySelectorAll('section[id]');
@@ -72,21 +82,37 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
   el.style.transitionDelay = `${i * 0.1}s`;
 });
 
-// ── FORM SUBMIT (demo) ──
+// ── FORM SUBMIT ──
+async function submitForm(formEl, endpoint, successMsg, defaultLabel) {
+  const btn = formEl.querySelector('button[type="submit"]');
+  btn.textContent = 'Envoi en cours…';
+  btn.disabled = true;
+  try {
+    const data = Object.fromEntries(new FormData(formEl));
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    if (json.success) {
+      btn.textContent = successMsg;
+      btn.style.background = '#2d5a2d';
+      formEl.reset();
+      setTimeout(() => { btn.textContent = defaultLabel; btn.style.background = ''; btn.disabled = false; }, 5000);
+    } else throw new Error();
+  } catch {
+    btn.textContent = 'Erreur — réessayez';
+    btn.style.background = '#8b1a1a';
+    setTimeout(() => { btn.textContent = defaultLabel; btn.style.background = ''; btn.disabled = false; }, 3000);
+  }
+}
+
 const form = document.getElementById('form');
 if (form) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = '✓ Message envoyé !';
-    btn.style.background = '#2d5a2d';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.textContent = 'Envoyer le message';
-      btn.style.background = '';
-      btn.disabled = false;
-      form.reset();
-    }, 3500);
+    submitForm(form, '/api/contact', '✓ Message envoyé !', 'Envoyer le message');
   });
 }
 
@@ -103,20 +129,8 @@ if (inscForm) {
 
   inscForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const btn = inscForm.querySelector('button[type="submit"]');
-    const orig = btn.textContent;
-    btn.textContent = '✓ Demande envoyée ! Nous vous contactons sous 48h.';
-    btn.style.background = '#2d5a2d';
-    btn.disabled = true;
-    inscForm.querySelectorAll('input,select,textarea').forEach(el => el.disabled = true);
-    setTimeout(() => {
-      btn.textContent = orig;
-      btn.style.background = '';
-      btn.disabled = false;
-      inscForm.querySelectorAll('input,select,textarea').forEach(el => el.disabled = false);
-      inscForm.reset();
-      modaliteGroup.style.display = 'none';
-    }, 5000);
+    submitForm(inscForm, '/api/inscription', '✓ Demande envoyée ! Nous vous contactons sous 48h.', 'Envoyer ma demande d\'inscription');
+    modaliteGroup.style.display = 'none';
   });
 }
 

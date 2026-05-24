@@ -22,6 +22,7 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
+        <button class="nav-close" id="nav-close" aria-label="Fermer le menu">✕</button>
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#galerie">Galerie</a></li>
@@ -32,6 +33,7 @@
       </ul>
     </nav>
   </header>
+  <div class="nav-overlay" id="nav-overlay"></div>
 
   <!-- ── HERO ── -->
   <section class="hero" id="accueil">
@@ -94,7 +96,7 @@
       </div>
       <div class="services-grid">
 
-        <div class="service-card reveal">
+        <div class="service-card reveal featured">
           <div class="service-icon">🏠</div>
           <h3>Pension équestre</h3>
           <p>Pension interne ou externe avec suivi personnalisé, prés clôturés par tranche d'âge, et structures modernes pour le bien-être de votre cheval.</p>
@@ -118,7 +120,7 @@
           <a href="#contact" class="service-link">En savoir plus →</a>
         </div>
 
-        <div class="service-card reveal">
+        <div class="service-card reveal featured">
           <div class="service-icon">🏆</div>
           <h3>Valorisation & Élevage</h3>
           <p>Service personnalisé pour chevaux de 4 ans minimum. Débourrage, dressage, valorisation pour la vente avec suivi professionnel.</p>
@@ -130,7 +132,7 @@
           <a href="#contact" class="service-link">En savoir plus →</a>
         </div>
 
-        <div class="service-card reveal">
+        <div class="service-card reveal featured">
           <div class="service-icon">📋</div>
           <h3>Centre de formation</h3>
           <p>Formation professionnelle diplômante depuis 2016. Devenez animateur d'équitation dans un cadre pédagogique structuré et bienveillant.</p>
@@ -186,14 +188,6 @@
           <a href="tel:0673508895" class="membre-tel">06 73 50 88 95</a>
         </div>
 
-        <div class="membre-card reveal">
-          <div class="membre-avatar">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Xavier Duclos" />
-          </div>
-          <h4>Xavier Duclos</h4>
-          <span class="membre-role">Palefrenier – depuis 2007</span>
-          <p>Véritable pilier des écuries depuis 2007, Xavier assure le bien-être quotidien des chevaux avec rigueur et affection.</p>
-        </div>
 
       </div>
     </div>
@@ -231,9 +225,9 @@
         <a href="#contact" class="btn btn-primary">Demander une visite</a>
       </div>
       <div class="infra-images reveal">
-        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=700&q=80" alt="Écurie" class="infra-img infra-img-main" />
-        <img src="https://images.unsplash.com/photo-1590419690008-905895e8fe0d?w=400&q=80" alt="Cheval au pré" class="infra-img infra-img-sm1" />
-        <img src="https://images.unsplash.com/photo-1534307671554-9a6d81f4d629?w=400&q=80" alt="Box cheval" class="infra-img infra-img-sm2" />
+        <img src="infra-main.jpg" alt="Jument et poulain dans le box" class="infra-img infra-img-main" />
+        <img src="infra-sm1.jpg" alt="Chevaux au paddock" class="infra-img infra-img-sm1" />
+        <img src="infra-sm2.jpg" alt="Jument et poulain au pré" class="infra-img infra-img-sm2" />
       </div>
     </div>
   </section>
@@ -248,31 +242,31 @@
       </div>
       <div class="galerie-grid">
         <div class="gal-item reveal" data-index="0">
-          <img src="https://images.unsplash.com/photo-1553284965-5dd5dde3d8e4?w=900&q=80" alt="Cheval au galop" loading="lazy" />
+          <img src="gal1.jpg" alt="Les chevaux au pré, fleurs jaunes" loading="lazy" />
           <div class="gal-overlay"><span>+</span></div>
         </div>
         <div class="gal-item reveal" data-index="1">
-          <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=700&q=80" alt="Intérieur de l'écurie" loading="lazy" />
+          <img src="gal2.jpg" alt="L'équipe avec les chevaux" loading="lazy" />
           <div class="gal-overlay"><span>+</span></div>
         </div>
         <div class="gal-item reveal" data-index="2">
-          <img src="https://images.unsplash.com/photo-1590419690008-905895e8fe0d?w=700&q=80" alt="Cheval au pré" loading="lazy" />
+          <img src="gal3.jpg" alt="Jument et poulain avec l'équipe" loading="lazy" />
           <div class="gal-overlay"><span>+</span></div>
         </div>
         <div class="gal-item reveal" data-index="3">
-          <img src="https://images.unsplash.com/photo-1534307671554-9a6d81f4d629?w=700&q=80" alt="Box et litière" loading="lazy" />
+          <img src="gal4.jpg" alt="Soins du poulain" loading="lazy" />
           <div class="gal-overlay"><span>+</span></div>
         </div>
         <div class="gal-item reveal" data-index="4">
-          <img src="https://images.unsplash.com/photo-1553284966-19b8815c7817?w=700&q=80" alt="Portrait de cheval" loading="lazy" />
+          <img src="gal5.jpg" alt="Portrait de cheval au paddock" loading="lazy" />
           <div class="gal-overlay"><span>+</span></div>
         </div>
         <div class="gal-item reveal" data-index="5">
-          <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=900&q=80" alt="Cavalier en selle" loading="lazy" />
+          <img src="gal6.jpg" alt="Jument et son poulain" loading="lazy" />
           <div class="gal-overlay"><span>+</span></div>
         </div>
         <div class="gal-item reveal" data-index="6">
-          <img src="https://images.unsplash.com/photo-1601758003122-53c40e686a19?w=700&q=80" alt="Cours d'équitation" loading="lazy" />
+          <img src="gal7.jpg" alt="Poulain au pré" loading="lazy" />
           <div class="gal-overlay"><span>+</span></div>
         </div>
       </div>
@@ -346,7 +340,7 @@
   <section class="tarifs" id="tarifs">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Saison 2025–2026</span>
+        <span class="section-tag">Saison 2026–2027</span>
         <h2>Nos tarifs</h2>
         <p>Grille tarifaire complète. Une réduction de <strong>5&nbsp;%</strong> est appliquée sur les cours et la pension en cas de paiement par prélèvement SEPA.</p>
       </div>
@@ -775,7 +769,7 @@
       <!-- Carte Google Maps -->
       <div class="map-wrap reveal">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2862.1!2d-1.083!3d43.728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQzJzQxLjAiTiAxwrAwNScwMi44Ilc!5e0!3m2!1sfr!2sfr!4v1"
+          src="https://maps.google.com/maps?q=2025+Route+du+Landran,+40380+Gamarde-les-Bains&output=embed&z=15"
           width="100%" height="350" style="border:0;" allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade" title="Localisation des Écuries du Landran">
         </iframe>

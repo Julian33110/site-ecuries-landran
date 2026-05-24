@@ -31,33 +31,30 @@ if (heroImg) {
   }, { passive: true });
 }
 
-// ── BURGER MENU ──
+// ── BURGER MENU MOBILE ──
 const burger = document.getElementById('burger');
-const navLinks = document.getElementById('nav-links');
-const navOverlay = document.getElementById('nav-overlay');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
 
 function closeMenu() {
-  burger.classList.remove('open');
-  navLinks.classList.remove('open');
-  navOverlay.classList.remove('active');
+  mobileMenu.classList.remove('open');
   document.body.style.overflow = '';
 }
 
+function openMenu() {
+  mobileMenu.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
 burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-  navOverlay.classList.toggle('active');
-  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+  mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
 });
 
-navLinks.querySelectorAll('a').forEach(link => {
+mobileMenuClose.addEventListener('click', closeMenu);
+
+mobileMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', closeMenu);
 });
-
-const navCloseBtn = document.getElementById('nav-close');
-if (navCloseBtn) navCloseBtn.addEventListener('click', closeMenu);
-
-navOverlay.addEventListener('click', closeMenu);
 
 // ── SMOOTH ACTIVE NAV ──
 const sections = document.querySelectorAll('section[id]');

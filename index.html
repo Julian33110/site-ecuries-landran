@@ -18,11 +18,7 @@
       <a href="#accueil" class="logo">
         <img src="logo.png" alt="Les Écuries du Landran" class="logo-img" />
       </a>
-      <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
       <ul class="nav-links" id="nav-links">
-        <button class="nav-close" id="nav-close" aria-label="Fermer le menu">✕</button>
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#galerie">Galerie</a></li>
@@ -31,9 +27,24 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="#inscriptions" class="nav-cta">S'inscrire</a></li>
       </ul>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
-  <div class="nav-overlay" id="nav-overlay"></div>
+  <!-- Menu mobile plein écran -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Fermer">✕</button>
+    <ul class="mobile-menu-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#equipe">L'équipe</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#inscriptions" class="nav-cta">S'inscrire</a></li>
+    </ul>
+  </div>
 
   <!-- ── HERO ── -->
   <section class="hero" id="accueil">

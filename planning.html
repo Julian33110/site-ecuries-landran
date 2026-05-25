@@ -18,15 +18,8 @@
   <header id="header">
     <nav class="nav">
       <a href="index.html" class="logo">
-        <span class="logo-icon">🐴</span>
-        <div>
-          <span class="logo-name">Les Écuries du Landran</span>
-          <span class="logo-sub">École d'équitation · Élevage</span>
-        </div>
+        <img src="logo.png" alt="Les Écuries du Landran" class="logo-img" />
       </a>
-      <button class="burger" id="burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html#accueil">Accueil</a></li>
         <li><a href="index.html#services">Services</a></li>
@@ -36,8 +29,23 @@
         <li><a href="index.html#contact">Contact</a></li>
         <li><a href="index.html#inscriptions" class="nav-cta">S'inscrire</a></li>
       </ul>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Fermer">✕</button>
+    <ul class="mobile-menu-links">
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#galerie">Galerie</a></li>
+      <li><a href="index.html#equipe">L'équipe</a></li>
+      <li><a href="index.html#tarifs">Tarifs</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#inscriptions" class="nav-cta">S'inscrire</a></li>
+    </ul>
+  </div>
 
   <main class="subpage-main">
     <div class="subpage-hero">
@@ -54,7 +62,7 @@
       <div class="planning-enseignantes">
         <div class="planning-ens-card">
           <div class="planning-ens-avatar">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80" alt="Clara Cazeneuve" />
+            <img src="clara.jpg" alt="Clara Cazeneuve" />
           </div>
           <div>
             <strong>Clara Cazeneuve</strong>
@@ -64,7 +72,7 @@
         </div>
         <div class="planning-ens-card">
           <div class="planning-ens-avatar">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&q=80" alt="Élise Gandy" />
+            <img src="elise.jpg" alt="Élise Gandy" />
           </div>
           <div>
             <strong>Élise Gandy</strong>
@@ -127,8 +135,8 @@
           <p><a href="tel:0679659356">06 79 65 93 56</a></p>
           <p><a href="mailto:lesecuriesdulandran@gmail.com">lesecuriesdulandran@gmail.com</a></p>
           <div class="social-links" style="margin-top:12px">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn">Facebook</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
+            <a href="https://www.facebook.com/ecuries.landran" target="_blank" rel="noopener noreferrer" class="social-btn">Facebook</a>
+            <a href="https://www.instagram.com/ecurieslandran/" target="_blank" rel="noopener noreferrer" class="social-btn">Instagram</a>
           </div>
         </div>
       </div>
@@ -139,6 +147,19 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script>
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const header = document.getElementById('header');
+    burger.addEventListener('click', () => {
+      mobileMenu.classList.contains('open')
+        ? (mobileMenu.classList.remove('open'), document.body.style.overflow = '')
+        : (mobileMenu.classList.add('open'), document.body.style.overflow = 'hidden');
+    });
+    mobileMenuClose.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+  </script>
 </body>
 </html>

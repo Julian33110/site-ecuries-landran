@@ -7,10 +7,45 @@
   <meta name="description" content="Les Écuries du Landran à Gamarde-les-Bains. Pension équestre, école d'équitation, élevage et valorisation de chevaux. Bienveillance, famille, performance." />
   <link rel="icon" href="logo.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ecurie-du-landran.vercel.app/" />
+  <meta property="og:url" content="https://ecuries-landran.fr/" />
   <meta property="og:title" content="Les Écuries du Landran – École d'équitation & Centre d'élevage" />
   <meta property="og:description" content="Pension équestre, école d'équitation, élevage et valorisation de chevaux à Gamarde-les-Bains, Landes. Bienveillance, famille, performance." />
-  <meta property="og:image" content="https://ecurie-du-landran.vercel.app/hero.jpg" />
+  <meta property="og:image" content="https://ecuries-landran.fr/hero.jpg" />
+  <meta name="geo.region" content="FR-40" />
+  <meta name="geo.placename" content="Gamarde-les-Bains, Landes" />
+  <link rel="canonical" href="https://ecuries-landran.fr/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Les Écuries du Landran",
+    "description": "Centre équestre à Gamarde-les-Bains proposant pension intérieure, école d'équitation pour enfants et adultes, et commerce de chevaux dans les Landes.",
+    "url": "https://ecuries-landran.fr",
+    "telephone": "",
+    "image": "https://ecuries-landran.fr/hero.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Le Landran",
+      "addressLocality": "Gamarde-les-Bains",
+      "postalCode": "40380",
+      "addressCountry": "FR",
+      "addressRegion": "Landes"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.719,
+      "longitude": -0.874
+    },
+    "openingHours": "Mo-Su 08:00-20:00",
+    "hasMap": "https://maps.google.com/?q=Ecurie+du+Landran+Gamarde-les-Bains",
+    "sameAs": [],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Pension équestre" },
+      { "@type": "LocationFeatureSpecification", "name": "École d'équitation" },
+      { "@type": "LocationFeatureSpecification", "name": "Commerce de chevaux" }
+    ]
+  }
+  </script>
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,8 +63,10 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#chevaux">Nos chevaux</a></li>
         <li><a href="#galerie">Galerie</a></li>
         <li><a href="#equipe">L'équipe</a></li>
+        <li><a href="#planning">Planning</a></li>
         <li><a href="#tarifs">Tarifs</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#inscriptions" class="nav-cta">S'inscrire</a></li>
@@ -45,6 +82,7 @@
     <ul class="mobile-menu-links">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#chevaux">Nos chevaux</a></li>
       <li><a href="#galerie">Galerie</a></li>
       <li><a href="#equipe">L'équipe</a></li>
       <li><a href="#tarifs">Tarifs</a></li>
@@ -67,7 +105,7 @@
         Performance.
       </h1>
       <p class="hero-desc reveal">
-        Depuis des années, nous accueillons chevaux et cavaliers dans un cadre exceptionnel de 15 hectares. École d'équitation, pension, élevage — tout dans le respect du cheval.
+        Depuis plus de 20 ans, nous accueillons chevaux et cavaliers dans un cadre exceptionnel de 15 hectares. École d'équitation, pension, élevage — tout dans le respect du cheval.
       </p>
       <div class="hero-actions reveal">
         <a href="#services" class="btn btn-primary">Découvrir nos services</a>
@@ -116,11 +154,11 @@
 
         <div class="service-card reveal featured">
           <div class="service-icon">🏠</div>
-          <h3>Pension équestre</h3>
-          <p>Pension interne ou externe avec suivi personnalisé, prés clôturés par tranche d'âge, et structures modernes pour le bien-être de votre cheval.</p>
+          <h3>Écurie de propriétaire</h3>
+          <p>Accueillez votre cheval dans nos installations avec un suivi personnalisé, des prés clôturés par tranche d'âge et une surveillance 24h/24.</p>
           <ul>
-            <li>Pension interne & externe</li>
-            <li>Valorisation incluse possible</li>
+            <li>Pension intérieure avec suivi personnalisé</li>
+            <li>Pension mixte (pré/boxe)</li>
             <li>Surveillance 24h/24</li>
           </ul>
           <a href="#contact" class="service-link">En savoir plus →</a>
@@ -129,9 +167,10 @@
         <div class="service-card reveal featured">
           <div class="service-icon">🎓</div>
           <h3>École d'équitation</h3>
-          <p>Cheval Club & Poney Club : cours pour tous niveaux, du débutant au cavalier confirmé, dans une ambiance familiale et bienveillante.</p>
+          <p>Cheval Club & Poney Club : cours pour tous niveaux, du débutant au cavalier confirmé. Une ambiance conviviale et familiale où chaque cavalier progresse à son rythme.</p>
           <ul>
             <li>Poney Club & Cheval Club</li>
+            <li>Ambiance conviviale & familiale</li>
             <li>Cours individuels & collectifs</li>
             <li>Préparation aux galops</li>
           </ul>
@@ -139,19 +178,19 @@
         </div>
 
         <div class="service-card reveal featured">
-          <div class="service-icon">🏆</div>
-          <h3>Valorisation & Élevage</h3>
-          <p>Service personnalisé pour chevaux de 4 ans minimum. Débourrage, dressage, valorisation pour la vente avec suivi professionnel.</p>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L8 8H2l5 4-2 7 7-4 7 4-2-7 5-4h-6z"/></svg></div>
+          <h3>Commerce de chevaux</h3>
+          <p>Production, débourrage et valorisation de chevaux d'équitation depuis plus de 20 ans. Des chevaux produits au Landran, vendus en France et à l'international.</p>
           <ul>
-            <li>Débourrage & dressage</li>
+            <li>Débourrage & valorisation</li>
             <li>Chevaux dès 4 ans</li>
-            <li>Commerce de chevaux</li>
+            <li>Références en France & à l'export</li>
           </ul>
-          <a href="#contact" class="service-link">En savoir plus →</a>
+          <a href="#chevaux" class="service-link">Voir nos chevaux →</a>
         </div>
 
         <div class="service-card reveal featured">
-          <div class="service-icon">📋</div>
+          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
           <h3>Centre de formation</h3>
           <p>Formation professionnelle diplômante depuis 2016. Devenez animateur d'équitation dans un cadre pédagogique structuré et bienveillant.</p>
           <ul>
@@ -163,6 +202,63 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ── COMMERCE DE CHEVAUX ── -->
+  <section class="chevaux" id="chevaux">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Élevage & Commerce</span>
+        <h2>Nos chevaux</h2>
+        <p>Production et valorisation de chevaux d'équitation depuis plus de 20 ans. Des chevaux travaillés au Landran, partis en France et à l'international.</p>
+      </div>
+
+      <div class="chevaux-dispo reveal">
+        <h3 class="chevaux-subtitle">Actuellement disponibles</h3>
+        <div class="chevaux-grid">
+          <div class="cheval-card">
+            <div class="cheval-header">
+              <span class="cheval-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0-3.3-2.7-6-6-6S6 4.7 6 8c0 2.2 1.2 4.2 3 5.3V20h6v-6.7c1.8-1.1 3-3.1 3-5.3z"/><path d="M9 20h6"/></svg></span>
+              <span class="cheval-badge badge-dispo">Disponible</span>
+            </div>
+            <div class="cheval-name">Lancaster du Landran</div>
+            <a href="#contact" class="cheval-link">Renseignements →</a>
+          </div>
+          <div class="cheval-card">
+            <div class="cheval-header">
+              <span class="cheval-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0-3.3-2.7-6-6-6S6 4.7 6 8c0 2.2 1.2 4.2 3 5.3V20h6v-6.7c1.8-1.1 3-3.1 3-5.3z"/><path d="M9 20h6"/></svg></span>
+              <span class="cheval-badge badge-dispo">Disponible</span>
+            </div>
+            <div class="cheval-name">Maestro du Landran</div>
+            <a href="#contact" class="cheval-link">Renseignements →</a>
+          </div>
+          <div class="cheval-card">
+            <div class="cheval-header">
+              <span class="cheval-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8c0-3.3-2.7-6-6-6S6 4.7 6 8c0 2.2 1.2 4.2 3 5.3V20h6v-6.7c1.8-1.1 3-3.1 3-5.3z"/><path d="M9 20h6"/></svg></span>
+              <span class="cheval-badge badge-dispo">Disponible</span>
+            </div>
+            <div class="cheval-name">Mercato du Landran</div>
+            <a href="#contact" class="cheval-link">Renseignements →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="chevaux-refs reveal">
+        <h3 class="chevaux-subtitle">Nos références</h3>
+        <p class="chevaux-refs-intro">Chevaux produits et valorisés au Landran — vendus en France et exportés à l'international.</p>
+        <div class="refs-list">
+          <div class="ref-item"><span class="ref-name">Kuality du Landran</span><span class="ref-badge badge-vendu">Vendu</span></div>
+          <div class="ref-item"><span class="ref-name">Kiss du Landran</span><span class="ref-badge badge-vendu">Vendu</span></div>
+          <div class="ref-item"><span class="ref-name">Invictus du Landran</span><span class="ref-badge badge-vendu">Vendu</span></div>
+          <div class="ref-item"><span class="ref-name">Fanatic du Landran</span><span class="ref-badge badge-vendu">Vendu</span></div>
+          <div class="ref-item"><span class="ref-name">Gangster du Landran</span><span class="ref-badge badge-vendu">Vendu</span></div>
+          <div class="ref-item"><span class="ref-name">Guerlain du Landran</span><span class="ref-badge badge-export">Exporté en Chine 🇨🇳</span></div>
+          <div class="ref-item"><span class="ref-name">Hermès du Landran</span><span class="ref-badge badge-export">Exporté aux USA 🇺🇸</span></div>
+          <div class="ref-item"><span class="ref-name">Idem du Landran</span><span class="ref-badge badge-export">Exporté en Allemagne 🇩🇪</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -191,8 +287,8 @@
             <img src="clara.jpg" alt="Clara Cazeneuve" />
           </div>
           <h4>Clara Cazeneuve</h4>
-          <span class="membre-role">Enseignante & Valorisation</span>
-          <p>Spécialisée dans la valorisation des chevaux, Clara accompagne également les cavaliers dans leur progression avec douceur et expertise.</p>
+          <span class="membre-role">Cavalière professionnelle · DEJEPS</span>
+          <p>Cavalière professionnelle diplômée (DEJEPS), Clara est spécialisée dans la valorisation des chevaux et accompagne les cavaliers dans leur progression avec douceur et expertise.</p>
           <a href="tel:0644360318" class="membre-tel">06 44 36 03 18</a>
         </div>
 
@@ -201,8 +297,8 @@
             <img src="elise.jpg" alt="Élise Gandy" />
           </div>
           <h4>Élise Gandy</h4>
-          <span class="membre-role">Enseignante – École</span>
-          <p>Dédiée à l'école d'équitation, Élise transmet sa passion du cheval à chaque élève, du plus petit au plus confirmé.</p>
+          <span class="membre-role">Responsable Formation · BPJEPS</span>
+          <p>Titulaire du BPJEPS, Élise est Responsable Formation et transmet sa passion du cheval à chaque élève, du plus petit au plus confirmé.</p>
           <a href="tel:0673508895" class="membre-tel">06 73 50 88 95</a>
         </div>
 
@@ -546,7 +642,88 @@
       </div>
 
       <div class="tarifs-footer reveal">
-        <p>Grille tarifaire 2025–2026.</p>
+        <p>Grille tarifaire 2026–2027.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PLANNING ── -->
+  <section class="planning-section" id="planning">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Saison 2026–2027</span>
+        <h2>Planning des cours</h2>
+        <p>Retrouvez les créneaux hebdomadaires par niveau et par enseignante.</p>
+      </div>
+
+      <div class="planning-enseignantes reveal">
+        <div class="planning-ens-card">
+          <div class="planning-ens-avatar"><img src="clara.jpg" alt="Clara Cazeneuve" /></div>
+          <div>
+            <strong>Clara Cazeneuve</strong>
+            <span>Cheval Club · Valorisation</span>
+            <a href="tel:0644360318">06 44 36 03 18</a>
+          </div>
+        </div>
+        <div class="planning-ens-card">
+          <div class="planning-ens-avatar"><img src="elise.jpg" alt="Élise Gandy" /></div>
+          <div>
+            <strong>Élise Gandy</strong>
+            <span>Poney Club · École</span>
+            <a href="tel:0673508895">06 73 50 88 95</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="planning-legende reveal">
+        <div class="legende-item"><div class="legende-dot dot-poney"></div>Élise Gandy — Poney Club / École</div>
+        <div class="legende-item"><div class="legende-dot dot-cheval"></div>Clara Cazeneuve — Cheval Club / Valorisation</div>
+        <div class="legende-item"><div class="legende-dot dot-part"></div>Cours spécifique</div>
+      </div>
+
+      <div class="planning-grid reveal">
+
+        <div class="planning-day">
+          <div class="planning-day-head">Mercredi</div>
+          <div class="planning-slots">
+            <div class="planning-slot slot-poney"><div class="slot-time">14h30</div><div class="slot-info"><strong>Débutants</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">15h00</div><div class="slot-info"><strong>Galop 1/2</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-cheval"><div class="slot-time">15h30</div><div class="slot-info"><strong>Groupe 2/3</strong><span>Clara Cazeneuve</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">16h30</div><div class="slot-info"><strong>Galop 2/3</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">17h30</div><div class="slot-info"><strong>Galop 4/5</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-cheval"><div class="slot-time">18h30</div><div class="slot-info"><strong>Groupe 6-7</strong><span>Clara Cazeneuve</span></div></div>
+          </div>
+        </div>
+
+        <div class="planning-day">
+          <div class="planning-day-head">Jeudi</div>
+          <div class="planning-slots">
+            <div class="planning-slot slot-cheval"><div class="slot-time">18h30</div><div class="slot-info"><strong>Groupe 6-7</strong><span>Clara Cazeneuve</span></div></div>
+          </div>
+        </div>
+
+        <div class="planning-day">
+          <div class="planning-day-head">Vendredi</div>
+          <div class="planning-slots">
+            <div class="planning-slot slot-part"><div class="slot-time">11h00</div><div class="slot-info"><strong>Handisport</strong><span>Nous contacter</span></div></div>
+            <div class="planning-slot slot-cheval"><div class="slot-time">18h30</div><div class="slot-info"><strong>Groupe 6-7</strong><span>Clara Cazeneuve</span></div></div>
+          </div>
+        </div>
+
+        <div class="planning-day">
+          <div class="planning-day-head">Samedi</div>
+          <div class="planning-slots">
+            <div class="planning-slot slot-cheval"><div class="slot-time">9h30</div><div class="slot-info"><strong>Galop 6/7</strong><span>Clara Cazeneuve</span></div></div>
+            <div class="planning-slot slot-cheval"><div class="slot-time">10h30</div><div class="slot-info"><strong>Groupe 4/5</strong><span>Clara Cazeneuve</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">11h00</div><div class="slot-info"><strong>Galop 1/2</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-cheval"><div class="slot-time">11h30</div><div class="slot-info"><strong>Groupe 2/3</strong><span>Clara Cazeneuve</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">12h00</div><div class="slot-info"><strong>Débutants</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">14h30</div><div class="slot-info"><strong>Galop 2/3</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">15h30</div><div class="slot-info"><strong>Galop 4/5</strong><span>Élise Gandy</span></div></div>
+            <div class="planning-slot slot-poney"><div class="slot-time">16h30</div><div class="slot-info"><strong>Adulte</strong><span>Élise Gandy</span></div></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -556,21 +733,21 @@
     <div class="container">
 
       <div class="section-header reveal">
-        <span class="section-tag">Saison 2025–2026</span>
+        <span class="section-tag">Saison 2026–2027</span>
         <h2>Inscription à l'année &amp; aux stages</h2>
-        <p>Consultez d'abord le planning et les tarifs, puis remplissez le formulaire ci-dessous. Nous vous confirmerons votre inscription sous 48h.</p>
+        <p>Remplissez le formulaire ci-dessous. Nous vous confirmerons votre inscription sous 48h.</p>
       </div>
 
       <!-- Documents à télécharger -->
       <div class="insc-docs reveal">
-        <a href="https://irp.cdn-website.com/aa7456aa/files/uploaded/tarifs+2025-2026-8dd45bb4.pdf" target="_blank" class="insc-doc-btn">
-          <span>📄</span> Tarifs 2025–2026
+        <a href="#tarifs" class="insc-doc-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.5 9a3.5 3.5 0 0 0-5 0v6a3.5 3.5 0 0 0 5 0"/><line x1="9" y1="12" x2="14" y2="12"/></svg> Voir les tarifs
         </a>
         <a href="planning.html" class="insc-doc-btn">
-          <span>📅</span> Planning des cours
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Planning des cours
         </a>
         <a href="reglement-interieur.html" class="insc-doc-btn">
-          <span>📋</span> Règlement intérieur
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg> Règlement intérieur
         </a>
       </div>
 
@@ -694,24 +871,12 @@
 
         <!-- Cours souhaité -->
         <div class="insc-section-title">Cours souhaité</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="jour_cours">Jour du cours</label>
-            <select id="jour_cours" name="jour_cours">
-              <option value="">Choisir un jour…</option>
-              <option>Lundi</option>
-              <option>Mardi</option>
-              <option>Mercredi</option>
-              <option>Jeudi</option>
-              <option>Vendredi</option>
-              <option>Samedi</option>
-              <option>Dimanche</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="heure_cours">Heure du cours</label>
-            <input type="time" id="heure_cours" name="heure_cours" />
-          </div>
+        <div class="form-group" style="max-width:480px">
+          <label for="creneau">Créneau souhaité</label>
+          <select id="creneau" name="creneau">
+            <option value="">— Renseignez d'abord votre niveau ci-dessus —</option>
+          </select>
+          <p class="form-hint">Les créneaux affichés correspondent à votre niveau. <a href="planning.html" target="_blank">Voir le planning complet →</a></p>
         </div>
 
         <!-- Règlement intérieur -->
@@ -750,14 +915,14 @@
 
         <div class="contact-infos reveal">
           <div class="contact-info-item">
-            <span class="ci-icon">📍</span>
+            <span class="ci-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
             <div>
               <strong>Adresse</strong>
               <p>2025 Route du Landran<br />40380 Gamarde-les-Bains</p>
             </div>
           </div>
           <div class="contact-info-item">
-            <span class="ci-icon">📞</span>
+            <span class="ci-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l1.27-.73a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <div>
               <strong>Téléphones</strong>
               <p>
@@ -768,7 +933,7 @@
             </div>
           </div>
           <div class="contact-info-item">
-            <span class="ci-icon">✉️</span>
+            <span class="ci-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
             <div>
               <strong>E-mail</strong>
               <p><a href="mailto:lesecuriesdulandran@gmail.com">lesecuriesdulandran@gmail.com</a></p>
@@ -809,7 +974,7 @@
               <option>École d'équitation</option>
               <option>Valorisation / Élevage</option>
               <option>Centre de formation</option>
-              <option>Inscriptions 2025–2026</option>
+              <option>Inscriptions 2026–2027</option>
               <option>Autre</option>
             </select>
           </div>

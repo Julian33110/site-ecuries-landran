@@ -203,3 +203,50 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.stat-item').forEach(el => counterObserver.observe(el));
+
+// ── CRÉNEAU DYNAMIQUE ──
+(function () {
+  const SLOTS = {
+    '':  [{ v: 'mer-1430', l: 'Mercredi 14h30 — Débutants (Élise)' },
+          { v: 'sam-1200', l: 'Samedi 12h00 — Débutants (Élise)' }],
+    '1': [{ v: 'mer-1500', l: 'Mercredi 15h00 — Galop 1/2 (Élise)' },
+          { v: 'sam-1100', l: 'Samedi 11h00 — Galop 1/2 (Élise)' }],
+    '2': [{ v: 'mer-1500', l: 'Mercredi 15h00 — Galop 1/2 (Élise)' },
+          { v: 'mer-1530', l: 'Mercredi 15h30 — Groupe 2/3 (Clara)' },
+          { v: 'mer-1630', l: 'Mercredi 16h30 — Galop 2/3 (Élise)' },
+          { v: 'sam-1100', l: 'Samedi 11h00 — Galop 1/2 (Élise)' },
+          { v: 'sam-1130', l: 'Samedi 11h30 — Groupe 2/3 (Clara)' },
+          { v: 'sam-1430', l: 'Samedi 14h30 — Galop 2/3 (Élise)' }],
+    '3': [{ v: 'mer-1530', l: 'Mercredi 15h30 — Groupe 2/3 (Clara)' },
+          { v: 'mer-1630', l: 'Mercredi 16h30 — Galop 2/3 (Élise)' },
+          { v: 'sam-1130', l: 'Samedi 11h30 — Groupe 2/3 (Clara)' },
+          { v: 'sam-1430', l: 'Samedi 14h30 — Galop 2/3 (Élise)' }],
+    '4': [{ v: 'mer-1730', l: 'Mercredi 17h30 — Galop 4/5 (Élise)' },
+          { v: 'sam-1030', l: 'Samedi 10h30 — Groupe 4/5 (Clara)' },
+          { v: 'sam-1530', l: 'Samedi 15h30 — Galop 4/5 (Élise)' }],
+    '5': [{ v: 'mer-1730', l: 'Mercredi 17h30 — Galop 4/5 (Élise)' },
+          { v: 'sam-1030', l: 'Samedi 10h30 — Groupe 4/5 (Clara)' },
+          { v: 'sam-1530', l: 'Samedi 15h30 — Galop 4/5 (Élise)' }],
+    '6': [{ v: 'mer-1830', l: 'Mercredi 18h30 — Groupe 6-7 (Clara)' },
+          { v: 'jeu-1830', l: 'Jeudi 18h30 — Groupe 6-7 (Clara)' },
+          { v: 'ven-1830', l: 'Vendredi 18h30 — Groupe 6-7 (Clara)' },
+          { v: 'sam-0930', l: 'Samedi 9h30 — Galop 6/7 (Clara)' }],
+    '7': [{ v: 'mer-1830', l: 'Mercredi 18h30 — Groupe 6-7 (Clara)' },
+          { v: 'jeu-1830', l: 'Jeudi 18h30 — Groupe 6-7 (Clara)' },
+          { v: 'ven-1830', l: 'Vendredi 18h30 — Groupe 6-7 (Clara)' },
+          { v: 'sam-0930', l: 'Samedi 9h30 — Galop 6/7 (Clara)' }],
+  };
+
+  const galopSel   = document.getElementById('dernier_galop');
+  const creneauSel = document.getElementById('creneau');
+  if (!galopSel || !creneauSel) return;
+
+  function update() {
+    const slots = SLOTS[galopSel.value] || SLOTS[''];
+    creneauSel.innerHTML = '<option value="">Choisir un créneau…</option>' +
+      slots.map(s => `<option value="${s.v}">${s.l}</option>`).join('');
+  }
+
+  galopSel.addEventListener('change', update);
+  update();
+})();

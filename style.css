@@ -312,6 +312,20 @@ ul { list-style: none; }
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 28px;
 }
+.equipe-grid-top {
+  grid-template-columns: repeat(2, minmax(240px, 380px));
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.equipe-grid-bottom {
+  grid-template-columns: repeat(3, minmax(240px, 320px));
+  justify-content: center;
+  margin: 28px auto 0;
+}
+@media (max-width: 768px) {
+  .equipe-grid-top, .equipe-grid-bottom { grid-template-columns: 1fr; max-width: 380px; }
+}
 .membre-card {
   text-align: center;
   padding: 40px 24px 32px;

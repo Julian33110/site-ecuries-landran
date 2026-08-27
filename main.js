@@ -133,12 +133,6 @@ if (inscForm) {
   const inscTsField = document.getElementById('insc_ts');
   if (inscTsField) inscTsField.value = Date.now();
 
-  // Anti-spam : le bouton reste désactivé tant que Turnstile n'a pas validé
-  window.onInscTurnstileSuccess = function () {
-    const btn = inscForm.querySelector('button[type="submit"]');
-    if (btn) btn.disabled = false;
-  };
-
   const typeSelect = document.getElementById('type_inscription');
   const modaliteGroup = document.getElementById('modalite-group');
   const clubInfoRow = document.getElementById('club-info-row');

@@ -213,32 +213,21 @@ if (inscForm) {
   });
 })();
 
-// ── POPUP CONCOURS PHOTOS ──
+// ── BANNIÈRE BOUTIQUE PHOTOS ──
 (function () {
-  const overlay = document.getElementById('popup-concours');
-  if (!overlay) return;
+  const banner = document.getElementById('photo-banner');
+  if (!banner) return;
 
-  function openPopup() {
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  function closeBanner() {
+    banner.classList.remove('active');
+    sessionStorage.setItem('photo-banner-seen', '1');
   }
 
-  function closePopup() {
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    sessionStorage.setItem('popup-concours-seen', '1');
+  if (!sessionStorage.getItem('photo-banner-seen')) {
+    setTimeout(() => banner.classList.add('active'), 1200);
   }
 
-  if (!sessionStorage.getItem('popup-concours-seen')) {
-    setTimeout(openPopup, 600);
-  }
-
-  document.getElementById('popup-close').addEventListener('click', closePopup);
-  document.getElementById('popup-skip').addEventListener('click', closePopup);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
-  });
+  document.getElementById('photo-banner-close').addEventListener('click', closeBanner);
 })();
 
 // ── COUNTER ANIMATION ──

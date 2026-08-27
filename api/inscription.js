@@ -11,6 +11,35 @@ export default async function handler(req, res) {
 
   const d = req.body;
 
+  // Anti-spam : champ piège rempli → bot. On répond succès pour ne pas l'alerter, sans envoyer de mail.
+  if (d.insc_site) {
+    return res.status(200).json({ success: true });
+  }
+
+  // Anti-spam : soumission trop rapide après chargement du formulaire → bot.
+  const loadedAt = Number(d.insc_ts);
+  if (!loadedAt || Date.now() - loadedAt < 3000) {
+    return res.status(200).json({ success: true });
+  }
+
+  // Anti-spam : vérification Cloudflare Turnstile
+  const turnstileToken = d['cf-turnstile-response'];
+  if (!turnstileToken) {
+    return res.status(400).json({ success: false, error: 'Vérification anti-robot manquante' });
+  }
+  const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      secret: process.env.TURNSTILE_SECRET_KEY,
+      response: turnstileToken,
+      remoteip: req.headers['x-forwarded-for'] || '',
+    }),
+  }).then(r => r.json());
+  if (!verify.success) {
+    return res.status(400).json({ success: false, error: 'Vérification anti-robot échouée, veuillez réessayer' });
+  }
+
   if (!d.cav_prenom || !d.cav_nom || !d.insc_email) {
     return res.status(400).json({ success: false, error: 'Champs requis manquants' });
   }

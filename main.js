@@ -80,7 +80,7 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
 });
 
 // ── FORM SUBMIT ──
-async function submitForm(formEl, endpoint, successMsg, defaultLabel) {
+async function submitForm(formEl, endpoint, successMsg, defaultLabel, onReset) {
   const btn = formEl.querySelector('button[type="submit"]');
   btn.textContent = 'Envoi en cours…';
   btn.disabled = true;
@@ -96,7 +96,8 @@ async function submitForm(formEl, endpoint, successMsg, defaultLabel) {
       btn.textContent = successMsg;
       btn.style.background = '#2d5a2d';
       formEl.reset();
-      setTimeout(() => { btn.textContent = defaultLabel; btn.style.background = ''; btn.disabled = false; }, 5000);
+      if (onReset) onReset();
+      setTimeout(() => { btn.textContent = defaultLabel; btn.style.background = ''; if (!onReset) btn.disabled = false; }, 5000);
     } else throw new Error();
   } catch {
     btn.textContent = 'Erreur — réessayez';
@@ -116,6 +117,16 @@ if (form) {
 // ── FORMULAIRE INSCRIPTION ──
 const inscForm = document.getElementById('insc-form');
 if (inscForm) {
+  // Anti-spam : horodatage du chargement du formulaire
+  const inscTsField = document.getElementById('insc_ts');
+  if (inscTsField) inscTsField.value = Date.now();
+
+  // Anti-spam : le bouton reste désactivé tant que Turnstile n'a pas validé
+  window.onInscTurnstileSuccess = function () {
+    const btn = inscForm.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = false;
+  };
+
   const typeSelect = document.getElementById('type_inscription');
   const modaliteGroup = document.getElementById('modalite-group');
 
@@ -126,7 +137,11 @@ if (inscForm) {
 
   inscForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    submitForm(inscForm, '/api/inscription', '✓ Demande envoyée ! Nous vous contactons sous 48h.', 'Envoyer ma demande d\'inscription');
+    submitForm(inscForm, '/api/inscription', '✓ Demande envoyée ! Nous vous contactons sous 48h.', 'Envoyer ma demande d\'inscription', () => {
+      // Reformulaire : nouveau jeton Turnstile + horodatage nécessaires
+      if (inscTsField) inscTsField.value = Date.now();
+      if (window.turnstile) window.turnstile.reset();
+    });
     modaliteGroup.style.display = 'none';
   });
 }

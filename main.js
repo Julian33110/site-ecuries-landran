@@ -85,7 +85,10 @@ async function submitForm(formEl, endpoint, successMsg, defaultLabel, onReset) {
   btn.textContent = 'Envoi en cours…';
   btn.disabled = true;
   try {
-    const data = Object.fromEntries(new FormData(formEl));
+    const formData = new FormData(formEl);
+    const data = Object.fromEntries(formData);
+    const creneaux = formData.getAll('creneau');
+    if (creneaux.length) data.creneau = creneaux;
     const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -129,11 +132,20 @@ if (inscForm) {
 
   const typeSelect = document.getElementById('type_inscription');
   const modaliteGroup = document.getElementById('modalite-group');
+  const clubInfoRow = document.getElementById('club-info-row');
+  const galopGroup = document.getElementById('galop-group');
+  const coursSouhaiteSection = document.getElementById('cours-souhaite-section');
 
-  typeSelect.addEventListener('change', () => {
+  function updateFormForType() {
+    const isOccasionnel = typeSelect.value === 'occasionnel';
     modaliteGroup.style.display = typeSelect.value === 'annee' ? 'flex' : 'none';
-  });
-  modaliteGroup.style.display = 'none';
+    clubInfoRow.style.display = isOccasionnel ? 'none' : 'flex';
+    galopGroup.style.display = isOccasionnel ? 'none' : 'block';
+    coursSouhaiteSection.style.display = isOccasionnel ? 'none' : 'block';
+  }
+
+  typeSelect.addEventListener('change', updateFormForType);
+  updateFormForType();
 
   inscForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -142,7 +154,7 @@ if (inscForm) {
       if (inscTsField) inscTsField.value = Date.now();
       if (window.turnstile) window.turnstile.reset();
     });
-    modaliteGroup.style.display = 'none';
+    updateFormForType();
   });
 }
 
@@ -222,44 +234,47 @@ document.querySelectorAll('.stat-item').forEach(el => counterObserver.observe(el
 // ── CRÉNEAU DYNAMIQUE ──
 (function () {
   const SLOTS = {
-    '':  [{ v: 'mer-1430', l: 'Mercredi 14h30 — Débutants (Élise)' },
-          { v: 'sam-1200', l: 'Samedi 12h00 — Débutants (Élise)' }],
-    '1': [{ v: 'mer-1500', l: 'Mercredi 15h00 — Galop 1/2 (Élise)' },
-          { v: 'sam-1100', l: 'Samedi 11h00 — Galop 1/2 (Élise)' }],
-    '2': [{ v: 'mer-1500', l: 'Mercredi 15h00 — Galop 1/2 (Élise)' },
-          { v: 'mer-1530', l: 'Mercredi 15h30 — Groupe 2/3 (Clara)' },
-          { v: 'mer-1630', l: 'Mercredi 16h30 — Galop 2/3 (Élise)' },
-          { v: 'sam-1100', l: 'Samedi 11h00 — Galop 1/2 (Élise)' },
-          { v: 'sam-1130', l: 'Samedi 11h30 — Groupe 2/3 (Clara)' },
-          { v: 'sam-1430', l: 'Samedi 14h30 — Galop 2/3 (Élise)' }],
-    '3': [{ v: 'mer-1530', l: 'Mercredi 15h30 — Groupe 2/3 (Clara)' },
-          { v: 'mer-1630', l: 'Mercredi 16h30 — Galop 2/3 (Élise)' },
-          { v: 'sam-1130', l: 'Samedi 11h30 — Groupe 2/3 (Clara)' },
-          { v: 'sam-1430', l: 'Samedi 14h30 — Galop 2/3 (Élise)' }],
-    '4': [{ v: 'mer-1730', l: 'Mercredi 17h30 — Galop 4/5 (Élise)' },
-          { v: 'sam-1030', l: 'Samedi 10h30 — Groupe 4/5 (Clara)' },
-          { v: 'sam-1530', l: 'Samedi 15h30 — Galop 4/5 (Élise)' }],
-    '5': [{ v: 'mer-1730', l: 'Mercredi 17h30 — Galop 4/5 (Élise)' },
-          { v: 'sam-1030', l: 'Samedi 10h30 — Groupe 4/5 (Clara)' },
-          { v: 'sam-1530', l: 'Samedi 15h30 — Galop 4/5 (Élise)' }],
-    '6': [{ v: 'mer-1830', l: 'Mercredi 18h30 — Groupe 6-7 (Clara)' },
-          { v: 'jeu-1830', l: 'Jeudi 18h30 — Groupe 6-7 (Clara)' },
-          { v: 'ven-1830', l: 'Vendredi 18h30 — Groupe 6-7 (Clara)' },
-          { v: 'sam-0930', l: 'Samedi 9h30 — Galop 6/7 (Clara)' }],
-    '7': [{ v: 'mer-1830', l: 'Mercredi 18h30 — Groupe 6-7 (Clara)' },
-          { v: 'jeu-1830', l: 'Jeudi 18h30 — Groupe 6-7 (Clara)' },
-          { v: 'ven-1830', l: 'Vendredi 18h30 — Groupe 6-7 (Clara)' },
-          { v: 'sam-0930', l: 'Samedi 9h30 — Galop 6/7 (Clara)' }],
+    '':  [{ v: 'mer-1430', l: 'Mercredi 14h30 — Débutants (Équipe poney)' },
+          { v: 'sam-1430', l: 'Samedi 14h30 — Débutants (Équipe poney)' }],
+    '1': [{ v: 'mer-1500', l: 'Mercredi 15h00 — Galop 1/2 (Équipe poney)' },
+          { v: 'sam-1100', l: 'Samedi 11h00 — Galop 1/2 (Équipe poney)' }],
+    '2': [{ v: 'mer-1500', l: 'Mercredi 15h00 — Galop 1/2 (Équipe poney)' },
+          { v: 'mer-1530', l: 'Mercredi 15h30 — Galop 2/3 (Clara)' },
+          { v: 'mer-1630', l: 'Mercredi 16h30 — Galop 2/3 (Équipe poney)' },
+          { v: 'sam-1100', l: 'Samedi 11h00 — Galop 1/2 (Équipe poney)' },
+          { v: 'sam-1100c', l: 'Samedi 11h00 — Galop 2/3 (Clara)' },
+          { v: 'sam-1330', l: 'Samedi 13h30 — Galop 2/3 (Équipe poney)' }],
+    '3': [{ v: 'mer-1530', l: 'Mercredi 15h30 — Galop 2/3 (Clara)' },
+          { v: 'mer-1630', l: 'Mercredi 16h30 — Galop 2/3 (Équipe poney)' },
+          { v: 'sam-1100c', l: 'Samedi 11h00 — Galop 2/3 (Clara)' },
+          { v: 'sam-1330', l: 'Samedi 13h30 — Galop 2/3 (Équipe poney)' }],
+    '4': [{ v: 'mer-1730', l: 'Mercredi 17h30 — Galop 4/5 (Équipe poney)' },
+          { v: 'mer-1730c', l: 'Mercredi 17h30 — Galop 4/5 (Clara)' },
+          { v: 'sam-1000', l: 'Samedi 10h00 — Galop 4/5 (Clara)' },
+          { v: 'sam-1530', l: 'Samedi 15h30 — Galop 4/5 (Équipe poney)' }],
+    '5': [{ v: 'mer-1730', l: 'Mercredi 17h30 — Galop 4/5 (Équipe poney)' },
+          { v: 'mer-1730c', l: 'Mercredi 17h30 — Galop 4/5 (Clara)' },
+          { v: 'sam-1000', l: 'Samedi 10h00 — Galop 4/5 (Clara)' },
+          { v: 'sam-1530', l: 'Samedi 15h30 — Galop 4/5 (Équipe poney)' }],
+    '6': [{ v: 'mer-1830', l: 'Mercredi 18h30 — Galop 6-7 (Clara)' },
+          { v: 'ven-1830', l: 'Vendredi 18h30 — Galop 6-7 (Clara)' },
+          { v: 'sam-0900', l: 'Samedi 9h00 — Galop 6/7 (Clara)' }],
+    '7': [{ v: 'mer-1830', l: 'Mercredi 18h30 — Galop 6-7 (Clara)' },
+          { v: 'ven-1830', l: 'Vendredi 18h30 — Galop 6-7 (Clara)' },
+          { v: 'sam-0900', l: 'Samedi 9h00 — Galop 6/7 (Clara)' }],
   };
 
-  const galopSel   = document.getElementById('dernier_galop');
-  const creneauSel = document.getElementById('creneau');
-  if (!galopSel || !creneauSel) return;
+  const galopSel     = document.getElementById('dernier_galop');
+  const creneauGroup = document.getElementById('creneau-group');
+  if (!galopSel || !creneauGroup) return;
 
   function update() {
     const slots = SLOTS[galopSel.value] || SLOTS[''];
-    creneauSel.innerHTML = '<option value="">Choisir un créneau…</option>' +
-      slots.map(s => `<option value="${s.v}">${s.l}</option>`).join('');
+    creneauGroup.innerHTML = slots.map(s => `
+      <label style="display:flex;align-items:center;gap:10px;font-size:14px;color:#431F38;cursor:pointer;">
+        <input type="checkbox" name="creneau" value="${s.v}" style="width:16px;height:16px;accent-color:#B48A2B;">
+        ${s.l}
+      </label>`).join('');
   }
 
   galopSel.addEventListener('change', update);

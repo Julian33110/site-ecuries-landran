@@ -1,3 +1,12 @@
+// ── ACCUEIL → retour tout en haut ──
+document.querySelectorAll('a[href="#accueil"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.replaceState(null, '', ' ');
+  });
+});
+
 // ── SCROLL: header sticky + reveal ──
 const header = document.getElementById('header');
 const revealEls = document.querySelectorAll('.reveal');
@@ -201,6 +210,34 @@ if (inscForm) {
     if (e.key === 'Escape') close();
     if (e.key === 'ArrowLeft') show(current - 1);
     if (e.key === 'ArrowRight') show(current + 1);
+  });
+})();
+
+// ── POPUP CONCOURS PHOTOS ──
+(function () {
+  const overlay = document.getElementById('popup-concours');
+  if (!overlay) return;
+
+  function openPopup() {
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    sessionStorage.setItem('popup-concours-seen', '1');
+  }
+
+  if (!sessionStorage.getItem('popup-concours-seen')) {
+    setTimeout(openPopup, 600);
+  }
+
+  document.getElementById('popup-close').addEventListener('click', closePopup);
+  document.getElementById('popup-skip').addEventListener('click', closePopup);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
   });
 })();
 

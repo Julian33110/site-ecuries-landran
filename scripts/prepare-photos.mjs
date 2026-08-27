@@ -21,7 +21,7 @@ const SOURCE_DIR = process.argv[2]
   : path.join(ROOT, 'boutique-photos-source');
 const PREVIEW_DIR = path.join(ROOT, 'boutique', 'previews');
 const MANIFEST_PATH = path.join(ROOT, 'photos.json');
-const DEFAULT_PRICE_CENTS = Number(process.env.DEFAULT_PRICE_CENTS || 600);
+const DEFAULT_PRICE_CENTS = Number(process.env.DEFAULT_PRICE_CENTS || 500);
 const PREVIEW_MAX_WIDTH = 1600;
 const WATERMARK_TEXT = 'ÉCURIES DU LANDRAN — APERÇU';
 

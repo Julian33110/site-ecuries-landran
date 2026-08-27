@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { discountedUnitPrice, discountRateFor } from './_pricing.js';
 
-const OWNER_EMAIL = 'julianexpertpro@gmail.com';
+const OWNER_EMAIL = 'julianexpertphoto@gmail.com';
 const WERO_PHONE = '07 68 85 54 86';
 const IBAN = 'FR76 1330 6009 6006 0283 0600 033';
 

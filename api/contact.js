@@ -97,12 +97,12 @@ export default async function handler(req, res) {
   const send = (payload) => fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: 'Écuries du Landran <onboarding@resend.dev>', ...payload }),
+    body: JSON.stringify({ from: 'Écuries du Landran <noreply@ecuries-landran.fr>', ...payload }),
   });
 
   try {
     const r = await send({
-      to: ['julian.expert@esme.fr'],
+      to: ['ecuries-landran@orange.fr'],
       reply_to: email,
       subject: `✉️ ${prenom} ${nom} — ${sujet || 'Contact site web'}`,
       html,

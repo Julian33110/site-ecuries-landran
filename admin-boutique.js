@@ -29,9 +29,13 @@ function renderOrders(orders) {
             <td>${(o.totalCents / 100).toFixed(2)} €</td>
             <td>${o.paymentMethod === 'iban' ? 'Virement' : 'Wero'}</td>
             <td><span class="status-pill status-pill--${o.status}">${o.status === 'paid' ? 'Payée' : 'En attente'}</span></td>
-            <td>${
-              o.status !== 'paid' && o.orderId
-                ? `<button class="mark-paid-btn" data-order-id="${esc(o.orderId)}" data-photo-count="${o.photoIds.length}" data-amount-cents="${o.totalCents}">Marquer payé</button>`
+            <td class="actions-cell">${
+              o.orderId
+                ? `${
+                    o.status !== 'paid'
+                      ? `<button class="mark-paid-btn" data-order-id="${esc(o.orderId)}" data-photo-count="${o.photoIds.length}" data-amount-cents="${o.totalCents}">Marquer payé</button>`
+                      : ''
+                  }<button class="delete-order-btn" data-order-id="${esc(o.orderId)}" data-status="${esc(o.status)}" data-photo-count="${o.photoIds.length}" data-amount-cents="${o.totalCents}" title="Supprimer la commande">Supprimer</button>`
                 : ''
             }</td>
           </tr>`
@@ -41,6 +45,9 @@ function renderOrders(orders) {
 
   ordersBody.querySelectorAll('.mark-paid-btn').forEach((btn) => {
     btn.addEventListener('click', () => markPaid(btn));
+  });
+  ordersBody.querySelectorAll('.delete-order-btn').forEach((btn) => {
+    btn.addEventListener('click', () => deleteOrder(btn));
   });
 }
 
@@ -81,6 +88,50 @@ async function markPaid(btn) {
     alert('Erreur : ' + e.message);
     btn.disabled = false;
     btn.textContent = 'Marquer payé';
+  }
+}
+
+function removeOrderLocally(btn) {
+  const row = btn.closest('tr');
+  const status = btn.dataset.status;
+  const photoCount = Number(btn.dataset.photoCount);
+  const amountCents = Number(btn.dataset.amountCents);
+
+  if (status === 'paid') {
+    document.getElementById('orderCount').textContent = Math.max(0, Number(document.getElementById('orderCount').textContent) - 1);
+    document.getElementById('photoCount').textContent = Math.max(0, Number(document.getElementById('photoCount').textContent) - photoCount);
+    const totalEl = document.getElementById('total');
+    const newTotalCents = Math.max(0, Math.round(parseFloat(totalEl.textContent) * 100) - amountCents);
+    totalEl.textContent = (newTotalCents / 100).toFixed(2) + ' €';
+  } else {
+    document.getElementById('pendingCount').textContent = Math.max(0, Number(document.getElementById('pendingCount').textContent) - 1);
+  }
+
+  row.remove();
+  const ordersBody = document.getElementById('ordersBody');
+  if (!ordersBody.children.length) {
+    ordersBody.innerHTML = '<tr><td colspan="8" class="empty">Aucune commande pour l\'instant</td></tr>';
+  }
+}
+
+async function deleteOrder(btn) {
+  const orderId = btn.dataset.orderId;
+  if (!confirm(`Supprimer définitivement la commande ${orderId} ?`)) return;
+  btn.disabled = true;
+  btn.textContent = '…';
+  try {
+    const res = await fetch('/api/delete-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + currentPassword },
+      body: JSON.stringify({ orderId }),
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || 'Erreur');
+    removeOrderLocally(btn);
+  } catch (e) {
+    alert('Erreur : ' + e.message);
+    btn.disabled = false;
+    btn.textContent = 'Supprimer';
   }
 }
 

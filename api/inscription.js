@@ -40,29 +40,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   }
 
-  // Anti-spam : vérification Cloudflare Turnstile — best effort. Si le widget n'a pas pu
-  // charger (bloqueur de pub, réseau restrictif...), on ne bloque pas l'inscription : le
-  // honeypot + le piège temporel ci-dessus suffisent à filtrer l'essentiel des bots.
-  const turnstileToken = d['cf-turnstile-response'];
-  if (turnstileToken) {
-    try {
-      const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          secret: process.env.TURNSTILE_SECRET_KEY,
-          response: turnstileToken,
-          remoteip: req.headers['x-forwarded-for'] || '',
-        }),
-      }).then(r => r.json());
-      if (!verify.success) {
-        return res.status(400).json({ success: false, error: 'Vérification anti-robot échouée, veuillez réessayer' });
-      }
-    } catch (e) {
-      console.error('Erreur vérification Turnstile (ignorée, inscription poursuivie):', e.message);
-    }
-  }
-
   if (!d.cav_prenom || !d.cav_nom || !d.insc_email) {
     return res.status(400).json({ success: false, error: 'Champs requis manquants' });
   }

@@ -162,12 +162,14 @@ export default async function handler(req, res) {
     });
     if (!r.ok) { const err = await r.json(); return res.status(500).json({ success: false, error: err }); }
 
-    // Confirmation cavalier — best effort
-    send({ to: [d.insc_email], subject: `Demande d'inscription aux Écuries du Landran`, html: confirmHtml })
-      .then(async (cr) => {
-        if (!cr.ok) console.error('Échec email confirmation cavalier:', await cr.text());
-      })
-      .catch((e) => console.error('Erreur réseau email confirmation cavalier:', e.message));
+    // Confirmation cavalier — attendue (le fire-and-forget ne se termine pas toujours
+    // avant que la fonction serverless soit coupée après l'envoi de la réponse)
+    try {
+      const cr = await send({ to: [d.insc_email], subject: `Demande d'inscription aux Écuries du Landran`, html: confirmHtml });
+      if (!cr.ok) console.error('Échec email confirmation cavalier:', await cr.text());
+    } catch (e) {
+      console.error('Erreur réseau email confirmation cavalier:', e.message);
+    }
 
     res.status(200).json({ success: true });
   } catch (e) {

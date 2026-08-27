@@ -109,8 +109,13 @@ export default async function handler(req, res) {
     });
     if (!r.ok) { const err = await r.json(); return res.status(500).json({ success: false, error: err }); }
 
-    // Confirmation visiteur — best effort, n'échoue pas si Resend bloque (domaine non vérifié)
-    send({ to: [email], subject: `Votre message aux Écuries du Landran`, html: confirmHtml }).catch(() => {});
+    // Confirmation visiteur — attendue (le fire-and-forget ne se termine pas toujours
+    // avant que la fonction serverless soit coupée après l'envoi de la réponse)
+    try {
+      await send({ to: [email], subject: `Votre message aux Écuries du Landran`, html: confirmHtml });
+    } catch (e) {
+      console.error('Erreur email confirmation visiteur:', e.message);
+    }
 
     res.status(200).json({ success: true });
   } catch (e) {

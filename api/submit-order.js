@@ -162,7 +162,11 @@ export default async function handler(req, res) {
 </html>`;
 
     await send({ to: [OWNER_EMAIL], reply_to: email, subject: `📸 Nouvelle commande — ${nom}`, html: notifHtml });
-    send({ to: [email], subject: `Votre commande — Écuries du Landran`, html: confirmHtml }).catch(() => {});
+    try {
+      await send({ to: [email], subject: `Votre commande — Écuries du Landran`, html: confirmHtml });
+    } catch (e) {
+      console.error('Erreur email confirmation commande:', e.message);
+    }
 
     res.status(200).json({
       success: true,

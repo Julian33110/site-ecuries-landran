@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const auth = req.headers.authorization || '';
   const password = auth.startsWith('Bearer ') ? auth.slice(7) : '';
-  if (!process.env.ADMIN_PASSWORD || password !== process.env.ADMIN_PASSWORD) {
+  if (!process.env.JPO_PASSWORD || password !== process.env.JPO_PASSWORD) {
     return res.status(401).json({ success: false, error: 'Non autorisé' });
   }
 

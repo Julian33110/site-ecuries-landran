@@ -230,6 +230,147 @@ ul { list-style: none; }
 }
 @keyframes scrollPulse { 0%,100% { opacity:.5; } 50% { opacity:1; } }
 
+/* ── JPO (Journée Portes Ouvertes) ── */
+.nav-jpo {
+  background: rgba(180,138,43,.18) !important;
+  border: 1px solid rgba(180,138,43,.5);
+  border-radius: 50px !important;
+}
+.nav-jpo:hover { background: rgba(180,138,43,.3) !important; }
+
+.jpo-hero {
+  position: relative;
+  background: linear-gradient(150deg, var(--green-dark) 0%, var(--green) 100%);
+  padding: 150px 24px 72px;
+  text-align: center;
+  overflow: hidden;
+}
+.jpo-hero::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 60%; height: 160%;
+  background: radial-gradient(circle, rgba(201,160,64,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.jpo-hero-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+.jpo-badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+  background: var(--gold-light);
+  padding: 8px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.jpo-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.jpo-baseline {
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(255,255,255,.88);
+  max-width: 560px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+.jpo-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.jpo-meta-item {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 10px 18px;
+  border-radius: 50px;
+}
+.jpo-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.jpo-count-item {
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  min-width: 76px;
+}
+.jpo-count-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.jpo-count-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-top: 6px;
+}
+.jpo-animations {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.jpo-anim-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 12px 18px;
+  border-radius: 50px;
+}
+.jpo-anim-icon { font-size: 18px; }
+.jpo-anim-item.featured {
+  background: rgba(201,160,64,.16);
+  border-color: var(--gold-light);
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 22px;
+}
+.jpo-anim-note {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.jpo-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+.jpo-form-section { padding: 100px 0; background: var(--green-dark); }
+.jpo-form-section .section-header h2 { color: var(--white); }
+.jpo-form-section .section-header p { color: rgba(255,255,255,.75); }
+
+@media (max-width: 720px) {
+  .jpo-hero { padding: 130px 20px 56px; }
+  .jpo-countdown { gap: 10px; }
+  .jpo-count-item { min-width: 60px; padding: 10px 12px; }
+  .jpo-count-num { font-size: 1.6rem; }
+}
+
 /* ── STATS ── */
 .stats {
   background: var(--green-dark);

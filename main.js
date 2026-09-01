@@ -160,6 +160,57 @@ if (inscForm) {
   });
 }
 
+// ── JPO : COMPTE À REBOURS ──
+(function () {
+  const jpoSection = document.getElementById('jpo');
+  if (!jpoSection) return;
+
+  const jpoStart = new Date('2026-09-20T10:00:00+02:00');
+  const jpoEnd = new Date('2026-09-20T18:00:00+02:00');
+
+  // Une fois l'événement terminé, on masque la bannière et le formulaire de réservation
+  if (Date.now() > jpoEnd.getTime()) {
+    jpoSection.style.display = 'none';
+    const jpoFormSection = document.getElementById('jpo-inscription');
+    if (jpoFormSection) jpoFormSection.style.display = 'none';
+    document.querySelectorAll('.nav-jpo').forEach(el => el.closest('li')?.remove());
+    return;
+  }
+
+  const elDays = document.getElementById('jpo-days');
+  const elHours = document.getElementById('jpo-hours');
+  const elMins = document.getElementById('jpo-mins');
+  const elSecs = document.getElementById('jpo-secs');
+
+  function tick() {
+    const diff = jpoStart.getTime() - Date.now();
+    if (diff <= 0) {
+      elDays.textContent = '0'; elHours.textContent = '00'; elMins.textContent = '00'; elSecs.textContent = '00';
+      return;
+    }
+    elDays.textContent = Math.floor(diff / 86400000);
+    elHours.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+    elMins.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    elSecs.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ── FORMULAIRE JPO — RÉSERVATION COURS D'ESSAI ──
+const jpoForm = document.getElementById('jpo-form');
+if (jpoForm) {
+  const jpoTsField = document.getElementById('jpo_ts');
+  if (jpoTsField) jpoTsField.value = Date.now();
+
+  jpoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitForm(jpoForm, '/api/jpo', '✓ Réservation envoyée !', 'Réserver mon cours d\'essai', () => {
+      if (jpoTsField) jpoTsField.value = Date.now();
+    });
+  });
+}
+
 // ── LIGHTBOX ──
 (function () {
   const items = document.querySelectorAll('.gal-item');

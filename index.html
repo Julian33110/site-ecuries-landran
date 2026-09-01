@@ -70,6 +70,7 @@
         <li><a href="#tarifs">Tarifs</a></li>
         <li><a href="boutique.html">Boutique photos</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#jpo" class="nav-jpo">🎉 JPO 20 sept.</a></li>
         <li><a href="#inscriptions" class="nav-cta">S'inscrire</a></li>
       </ul>
       <button class="burger" id="burger" aria-label="Menu">
@@ -89,9 +90,43 @@
       <li><a href="#tarifs">Tarifs</a></li>
       <li><a href="boutique.html">Boutique photos</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#jpo" class="nav-jpo">🎉 JPO 20 sept.</a></li>
       <li><a href="#inscriptions" class="nav-cta">S'inscrire</a></li>
     </ul>
   </div>
+
+  <!-- ── JOURNÉE PORTES OUVERTES ── -->
+  <section class="jpo-hero" id="jpo">
+    <div class="container jpo-hero-inner">
+      <span class="jpo-badge reveal">🎉 Événement</span>
+      <h2 class="jpo-title reveal">Journée Portes Ouvertes</h2>
+      <p class="jpo-baseline reveal">« Venez découvrir notre univers, rencontrer nos chevaux et notre équipe, et pourquoi pas faire vos premiers pas à cheval ! »</p>
+
+      <div class="jpo-meta reveal">
+        <span class="jpo-meta-item">📅 Dimanche 20 septembre</span>
+        <span class="jpo-meta-item">🕙 10h – 18h</span>
+        <span class="jpo-meta-item">👨‍👩‍👧‍👦 Ouvert à tous</span>
+      </div>
+
+      <div class="jpo-countdown reveal" id="jpo-countdown">
+        <div class="jpo-count-item"><span class="jpo-count-num" id="jpo-days">–</span><span class="jpo-count-label">jours</span></div>
+        <div class="jpo-count-item"><span class="jpo-count-num" id="jpo-hours">–</span><span class="jpo-count-label">heures</span></div>
+        <div class="jpo-count-item"><span class="jpo-count-num" id="jpo-mins">–</span><span class="jpo-count-label">min</span></div>
+        <div class="jpo-count-item"><span class="jpo-count-num" id="jpo-secs">–</span><span class="jpo-count-label">sec</span></div>
+      </div>
+
+      <div class="jpo-animations reveal">
+        <div class="jpo-anim-item"><span class="jpo-anim-icon">🐴</span> Animations autour du cheval</div>
+        <div class="jpo-anim-item"><span class="jpo-anim-icon">🐎</span> Balades à poney</div>
+        <div class="jpo-anim-item featured"><span class="jpo-anim-icon">🏇</span> Cours d'essai gratuits <span class="jpo-anim-note">Sur inscription — places limitées</span></div>
+      </div>
+
+      <div class="jpo-actions reveal">
+        <a href="#jpo-inscription" class="btn btn-primary">Réserver mon cours d'essai gratuit</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Journ%C3%A9e+Portes+Ouvertes+%E2%80%94+Les+%C3%89curies+du+Landran&dates=20260920T080000Z/20260920T160000Z&details=Venez+d%C3%A9couvrir+notre+univers%2C+nos+chevaux+et+notre+%C3%A9quipe+%21+Animations%2C+balades+%C3%A0+poney+et+cours+d%27essai+gratuits+sur+inscription.&location=2025+Route+du+Landran%2C+40380+Gamarde-les-Bains" target="_blank" rel="noopener" class="btn btn-outline">+ Ajouter à mon agenda</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ── HERO ── -->
   <section class="hero" id="accueil">
@@ -747,6 +782,83 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ── RÉSERVATION COURS D'ESSAI JPO ── -->
+  <section class="jpo-form-section" id="jpo-inscription">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Journée Portes Ouvertes — Dimanche 20 septembre</span>
+        <h2>Réservez votre cours d'essai gratuit</h2>
+        <p>Places limitées — l'inscription est obligatoire pour participer à un cours d'essai le jour de la JPO. Le reste de la journée (animations, balades à poney, visite des écuries) est ouvert à tous sans inscription.</p>
+      </div>
+
+      <form class="insc-form reveal" id="jpo-form">
+
+        <!-- Anti-spam : champ piège invisible + horodatage, ne pas retirer -->
+        <div class="insc-honeypot" aria-hidden="true">
+          <label for="jpo_site">Laissez ce champ vide</label>
+          <input type="text" id="jpo_site" name="jpo_site" tabindex="-1" autocomplete="off" />
+        </div>
+        <input type="hidden" id="jpo_ts" name="jpo_ts" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jpo_prenom">Prénom <span class="req">*</span></label>
+            <input type="text" id="jpo_prenom" name="jpo_prenom" placeholder="Votre prénom" required />
+          </div>
+          <div class="form-group">
+            <label for="jpo_nom">Nom <span class="req">*</span></label>
+            <input type="text" id="jpo_nom" name="jpo_nom" placeholder="Votre nom" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jpo_tel">Téléphone <span class="req">*</span></label>
+            <input type="tel" id="jpo_tel" name="jpo_tel" placeholder="06 XX XX XX XX" required />
+          </div>
+          <div class="form-group">
+            <label for="jpo_email">E-mail <span class="req">*</span></label>
+            <input type="email" id="jpo_email" name="jpo_email" placeholder="votre@email.fr" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jpo_creneau">Créneau souhaité <span class="req">*</span></label>
+            <select id="jpo_creneau" name="jpo_creneau" required>
+              <option value="">Choisir…</option>
+              <option value="matin">Matin — 10h à 12h</option>
+              <option value="apres-midi">Après-midi — 14h à 16h</option>
+              <option value="fin-apres-midi">Fin d'après-midi — 16h à 18h</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="jpo_niveau">Niveau du cavalier</label>
+            <select id="jpo_niveau" name="jpo_niveau">
+              <option value="">Choisir…</option>
+              <option value="jamais">Jamais monté à cheval</option>
+              <option value="occasionnel">Cavalier occasionnel</option>
+              <option value="bases">Déjà quelques bases</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jpo_nb">Nombre de personnes intéressées</label>
+            <input type="number" id="jpo_nb" name="jpo_nb" min="1" max="10" placeholder="1" />
+          </div>
+          <div class="form-group">
+            <label for="jpo_message">Message (optionnel)</label>
+            <input type="text" id="jpo_message" name="jpo_message" placeholder="Âge des enfants, questions…" />
+          </div>
+        </div>
+
+        <div class="insc-submit">
+          <button type="submit" class="btn btn-primary btn-full">Réserver mon cours d'essai</button>
+          <p class="form-note">Nous confirmons votre créneau par téléphone ou e-mail avant le 20 septembre. Champs marqués <span class="req">*</span> obligatoires.</p>
+        </div>
+      </form>
     </div>
   </section>
 

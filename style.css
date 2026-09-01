@@ -343,7 +343,6 @@ ul { list-style: none; }
   padding: 12px 18px;
   border-radius: 50px;
 }
-.jpo-anim-icon { font-size: 18px; }
 .jpo-anim-item.featured {
   background: rgba(201,160,64,.16);
   border-color: var(--gold-light);

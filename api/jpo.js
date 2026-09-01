@@ -7,9 +7,8 @@ function esc(str) {
 }
 
 const CRENEAU_LABEL = {
-  'matin': 'Matin — 10h à 12h',
-  'apres-midi': 'Après-midi — 14h à 16h',
-  'fin-apres-midi': "Fin d'après-midi — 16h à 18h",
+  'matin': 'Plutôt le matin',
+  'apres-midi': "Plutôt l'après-midi",
 };
 
 const NIVEAU_LABEL = {
@@ -34,7 +33,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   }
 
-  if (!d.jpo_prenom || !d.jpo_nom || !d.jpo_tel || !d.jpo_email || !d.jpo_creneau) {
+  if (!d.jpo_prenom || !d.jpo_nom || !d.jpo_tel || !d.jpo_email) {
     return res.status(400).json({ success: false, error: 'Champs requis manquants' });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.jpo_email)) {
@@ -60,7 +59,7 @@ export default async function handler(req, res) {
     </div>
     <div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(67,31,56,.08);">
       <div style="background:#431F38;padding:28px 32px;">
-        <p style="margin:0 0 4px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#B48A2B;">🎉 Réservation JPO — Cours d'essai gratuit</p>
+        <p style="margin:0 0 4px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#B48A2B;">Réservation JPO — Cours d'essai gratuit</p>
         <h1 style="margin:0;font-size:22px;color:#fff;font-weight:600;">${esc(d.jpo_prenom)} ${esc(d.jpo_nom)}</h1>
         <p style="margin:6px 0 0;font-size:13px;color:rgba(255,255,255,.6);">Dimanche 20 septembre 2026</p>
       </div>
@@ -68,7 +67,7 @@ export default async function handler(req, res) {
         <table style="width:100%;background:#f9f6f3;border-radius:10px;border-collapse:collapse;">
           ${row('Téléphone', d.jpo_tel)}
           ${row('Email', d.jpo_email)}
-          ${row('Créneau souhaité', CRENEAU_LABEL[d.jpo_creneau] || d.jpo_creneau)}
+          ${row('Moment préféré', CRENEAU_LABEL[d.jpo_creneau] || 'Pas de préférence')}
           ${row('Niveau', NIVEAU_LABEL[d.jpo_niveau] || 'Non précisé')}
           ${row('Nb personnes', d.jpo_nb)}
           ${row('Message', d.jpo_message)}
@@ -93,14 +92,13 @@ export default async function handler(req, res) {
     </div>
     <div style="background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(67,31,56,.08);">
       <div style="background:#431F38;padding:28px 32px;">
-        <p style="margin:0 0 4px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#B48A2B;">🎉 Journée Portes Ouvertes</p>
+        <p style="margin:0 0 4px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#B48A2B;">Journée Portes Ouvertes</p>
         <h1 style="margin:0;font-size:22px;color:#fff;font-weight:600;">À bientôt, ${esc(d.jpo_prenom)} !</h1>
       </div>
       <div style="padding:32px;">
-        <p style="margin:0 0 16px;font-size:15px;color:#431F38;line-height:1.7;">Votre demande de cours d'essai gratuit pour la Journée Portes Ouvertes du <strong>dimanche 20 septembre</strong> a bien été reçue. Nous vous confirmons votre créneau par téléphone ou e-mail avant le jour J.</p>
+        <p style="margin:0 0 16px;font-size:15px;color:#431F38;line-height:1.7;">Votre demande de cours d'essai gratuit pour la Journée Portes Ouvertes du <strong>dimanche 20 septembre</strong> a bien été reçue. Le système de réservation de créneaux horaires sera mis en place prochainement — nous vous recontactons par téléphone ou e-mail avant le jour J pour vous proposer un horaire précis.</p>
         <div style="background:#f9f6f3;border-radius:10px;padding:16px 20px;margin-bottom:24px;">
           <p style="margin:0 0 6px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#B48A2B;">Récapitulatif</p>
-          <p style="margin:0 0 4px;font-size:13px;color:#431F38;"><strong>Créneau souhaité :</strong> ${esc(CRENEAU_LABEL[d.jpo_creneau] || d.jpo_creneau)}</p>
           <p style="margin:0;font-size:13px;color:#431F38;"><strong>Rendez-vous :</strong> 2025 Route du Landran, 40380 Gamarde-les-Bains</p>
         </div>
         <p style="margin:0;font-size:13px;color:#7a6070;line-height:1.6;">À bientôt aux écuries,<br/><strong style="color:#431F38;">L'équipe du Landran</strong></p>
@@ -121,7 +119,7 @@ export default async function handler(req, res) {
     const r = await send({
       to: ['ecuries-landran@orange.fr'],
       reply_to: d.jpo_email,
-      subject: `🎉 JPO — Cours d'essai — ${d.jpo_prenom} ${d.jpo_nom}`,
+      subject: `JPO — Cours d'essai — ${d.jpo_prenom} ${d.jpo_nom}`,
       html,
     });
     if (!r.ok) { const err = await r.json(); return res.status(500).json({ success: false, error: err }); }

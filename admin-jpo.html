@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscriptions JPO — Écuries du Landran</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="admin-boutique.css" />
+</head>
+<body>
+
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <img src="logo.png" alt="" class="login-logo" />
+      <h1>Accès administrateur</h1>
+      <p>Inscriptions JPO — Écuries du Landran</p>
+      <div class="login-row">
+        <input type="password" id="password" placeholder="Code d'accès" autofocus />
+        <button id="loadBtn">Entrer</button>
+      </div>
+      <div id="error" class="error"></div>
+    </div>
+  </div>
+
+  <div id="dashboard" class="dashboard" hidden>
+    <div class="dashboard-inner">
+      <h1>Inscriptions — Journée Portes Ouvertes du 20 septembre</h1>
+
+      <div class="stat-grid">
+        <div class="stat-box">
+          <div class="value" id="count">0</div>
+          <div class="label">Inscriptions</div>
+        </div>
+        <div class="stat-box">
+          <div class="value" id="totalPersonnes">0</div>
+          <div class="label">Personnes attendues</div>
+        </div>
+      </div>
+
+      <div class="admin-panel admin-panel--orders">
+        <div class="panel-head">
+          <h2>Liste des inscrits</h2>
+          <button id="exportBtn" class="mark-paid-btn">Exporter CSV</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th>Téléphone</th>
+              <th>Email</th>
+              <th>Créneau</th>
+              <th>Niveau</th>
+              <th>Nb</th>
+              <th>Message</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="listBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin-jpo.js"></script>
+</body>
+</html>

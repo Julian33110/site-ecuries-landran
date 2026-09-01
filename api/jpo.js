@@ -1,3 +1,5 @@
+import { put } from '@vercel/blob';
+
 function esc(str) {
   return String(str ?? '')
     .replace(/&/g, '&amp;')
@@ -38,6 +40,29 @@ export default async function handler(req, res) {
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.jpo_email)) {
     return res.status(400).json({ success: false, error: 'Email invalide' });
+  }
+
+  // ── Enregistrement de l'inscription (Vercel Blob privé) ──
+  // Best-effort : un échec ici ne doit pas bloquer l'inscription, l'e-mail restant la notification principale.
+  const inscription = {
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    date: new Date().toISOString(),
+    prenom: d.jpo_prenom,
+    nom: d.jpo_nom,
+    tel: d.jpo_tel,
+    email: d.jpo_email,
+    creneau: CRENEAU_LABEL[d.jpo_creneau] || 'Pas de préférence',
+    niveau: NIVEAU_LABEL[d.jpo_niveau] || 'Non précisé',
+    nb: d.jpo_nb || '',
+    message: d.jpo_message || '',
+  };
+  try {
+    await put(`jpo/${inscription.id}.json`, JSON.stringify(inscription), {
+      access: 'private',
+      contentType: 'application/json',
+    });
+  } catch (e) {
+    console.error('Échec enregistrement inscription JPO sur Blob:', e.message);
   }
 
   const row = (label, value, raw = false) => value ? `

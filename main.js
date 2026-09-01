@@ -153,8 +153,9 @@ if (inscForm) {
   inscForm.addEventListener('submit', (e) => {
     e.preventDefault();
     submitForm(inscForm, '/api/inscription', '✓ Demande envoyée ! Nous vous contactons sous 48h.', 'Envoyer ma demande d\'inscription', () => {
-      // Reformulaire : nouvel horodatage nécessaire
+      // Reformulaire : nouvel horodatage + nouveau jeton Turnstile nécessaires
       if (inscTsField) inscTsField.value = Date.now();
+      if (window.turnstile) window.turnstile.reset();
     });
     updateFormForType();
   });

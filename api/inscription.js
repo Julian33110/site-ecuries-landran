@@ -40,6 +40,36 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   }
 
+  // Anti-spam : vérification Cloudflare Turnstile. Le bot qui contournait le honeypot
+  // et le piège temporel exécute un vrai navigateur — Turnstile est fait pour détecter
+  // précisément ce cas. Un jeton manquant ou invalide est traité comme le honeypot :
+  // succès silencieux, aucun email envoyé (pour ne pas alerter le bot qu'il est bloqué).
+  const turnstileToken = d['cf-turnstile-response'];
+  if (!turnstileToken) {
+    // Pas de jeton du tout = le widget ne s'est jamais chargé/exécuté → signal fort de bot
+    // (ou navigateur non-JS), on bloque silencieusement comme le honeypot.
+    return res.status(200).json({ success: true });
+  }
+  try {
+    const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: process.env.TURNSTILE_SECRET_KEY,
+        response: turnstileToken,
+        remoteip: req.headers['x-forwarded-for'] || '',
+      }),
+    }).then(r => r.json());
+    if (!verify.success) {
+      // Jeton explicitement invalide/rejeté par Cloudflare → bot confirmé.
+      return res.status(200).json({ success: true });
+    }
+  } catch (e) {
+    // Erreur réseau en joignant Cloudflare (panne, timeout...) : on ne bloque pas les
+    // vraies inscriptions pour une panne d'un service tiers, on laisse passer.
+    console.error('Erreur réseau vérification Turnstile (ignorée, inscription poursuivie):', e.message);
+  }
+
   if (!d.cav_prenom || !d.cav_nom || !d.insc_email) {
     return res.status(400).json({ success: false, error: 'Champs requis manquants' });
   }

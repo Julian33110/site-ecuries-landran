@@ -40,39 +40,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   }
 
-  // Anti-spam : vérification Cloudflare Turnstile, en défense supplémentaire du honeypot
-  // et du piège temporel. IMPORTANT : un jeton absent n'est PAS traité comme un bot ici,
-  // car le widget peut légitimement ne jamais produire de jeton (site key mal configurée
-  // côté Cloudflare pour ce domaine, bloqueur de script, erreur réseau chez le visiteur...).
-  // On ne bloque QUE si un jeton est présent et que Cloudflare le rejette explicitement —
-  // ne jamais faire dépendre l'envoi du mail d'un widget tiers qui peut silencieusement
-  // ne pas se charger (cf. incident précédent : formulaire bloqué pour tous les vrais
-  // utilisateurs sans aucune erreur visible).
-  const turnstileToken = d['cf-turnstile-response'];
-  if (turnstileToken) {
-    try {
-      const verify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          secret: process.env.TURNSTILE_SECRET_KEY,
-          response: turnstileToken,
-          remoteip: req.headers['x-forwarded-for'] || '',
-        }),
-      }).then(r => r.json());
-      if (!verify.success) {
-        // Jeton explicitement invalide/rejeté par Cloudflare → bot confirmé.
-        return res.status(200).json({ success: true });
-      }
-    } catch (e) {
-      // Erreur réseau en joignant Cloudflare (panne, timeout...) : on ne bloque pas les
-      // vraies inscriptions pour une panne d'un service tiers, on laisse passer.
-      console.error('Erreur réseau vérification Turnstile (ignorée, inscription poursuivie):', e.message);
-    }
-  } else {
-    console.error('Turnstile : aucun jeton reçu (widget non chargé côté client) — inscription poursuivie sans ce filtre.');
-  }
-
   if (!d.cav_prenom || !d.cav_nom || !d.insc_email) {
     return res.status(400).json({ success: false, error: 'Champs requis manquants' });
   }

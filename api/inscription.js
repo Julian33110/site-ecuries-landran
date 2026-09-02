@@ -7,21 +7,24 @@ function esc(str) {
 }
 
 const SLOTS_LABEL = {
+  'mer-1000': 'Mercredi 10h00 — Débutants / Galop 1',
+  'mer-1100': 'Mercredi 11h00 — Galop 2/3',
   'mer-1430': 'Mercredi 14h30 — Débutants (Équipe poney)',
-  'sam-1200': 'Samedi 12h00 — Débutants (Équipe poney)',
   'mer-1500': 'Mercredi 15h00 — Galop 1/2 (Équipe poney)',
-  'sam-1100': 'Samedi 11h00 — Galop 1/2 (Équipe poney)',
   'mer-1530': 'Mercredi 15h30 — Galop 2/3 (Clara)',
   'mer-1630': 'Mercredi 16h30 — Galop 2/3 (Équipe poney)',
-  'sam-1130': 'Samedi 11h30 — Galop 2/3 (Clara)',
-  'sam-1430': 'Samedi 14h30 — Galop 2/3 (Équipe poney)',
   'mer-1730': 'Mercredi 17h30 — Galop 4/5 (Équipe poney)',
-  'sam-1030': 'Samedi 10h30 — Galop 4/5 (Clara)',
-  'sam-1530': 'Samedi 15h30 — Galop 4/5 (Équipe poney)',
+  'mer-1730c': 'Mercredi 17h30 — Galop 4/5 (Clara)',
   'mer-1830': 'Mercredi 18h30 — Galop 6-7 (Clara)',
-  'jeu-1830': 'Jeudi 18h30 — Galop 6-7 (Clara)',
   'ven-1830': 'Vendredi 18h30 — Galop 6-7 (Clara)',
-  'sam-0930': 'Samedi 9h30 — Galop 6/7 (Clara)',
+  'sam-0900': 'Samedi 9h00 — Galop 6/7 (Clara)',
+  'sam-1000': 'Samedi 10h00 — Galop 4/5 (Clara)',
+  'sam-1100': 'Samedi 11h00 — Galop 1/2 (Équipe poney)',
+  'sam-1100c': 'Samedi 11h00 — Galop 2/3 (Clara)',
+  'sam-1330': 'Samedi 13h30 — Galop 2/3 (Équipe poney)',
+  'sam-1430': 'Samedi 14h30 — Débutants (Équipe poney)',
+  'sam-1530': 'Samedi 15h30 — Galop 4/5 (Équipe poney)',
+  'sam-1630': 'Samedi 16h30 — Adulte (Équipe poney)',
 };
 
 export default async function handler(req, res) {

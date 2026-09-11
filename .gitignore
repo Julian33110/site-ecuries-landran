@@ -2,4 +2,5 @@
 .env*.local
 node_modules
 boutique-photos-source/
+photo/
 .env*

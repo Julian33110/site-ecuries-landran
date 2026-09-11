@@ -732,6 +732,8 @@ ul { list-style: none; }
 }
 .gal-item:nth-child(1) { grid-column: span 2; }
 .gal-item:nth-child(6) { grid-column: span 2; }
+.gal-item:nth-child(11) { grid-column: span 2; }
+.gal-item:nth-child(16) { grid-column: span 2; }
 
 .gal-item {
   position: relative;
@@ -1100,7 +1102,9 @@ ul { list-style: none; }
     grid-auto-rows: 190px;
   }
   .gal-item:nth-child(1),
-  .gal-item:nth-child(6) { grid-column: span 1; }
+  .gal-item:nth-child(6),
+  .gal-item:nth-child(11),
+  .gal-item:nth-child(16) { grid-column: span 1; }
   .lb-prev { left: 10px; }
   .lb-next { right: 10px; }
 }
